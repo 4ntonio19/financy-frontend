@@ -1,4 +1,3 @@
-import React from "react";
 import { SContainer } from "./styles";
 import Button from "../button";
 import { Link } from "react-router-dom";

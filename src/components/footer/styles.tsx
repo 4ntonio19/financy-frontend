@@ -8,7 +8,13 @@ const SFooter = styled.footer`
   padding: 1rem;
   p {
     color: white;
+    font-size: 1rem;
     font-family: Montserrat;
+  }
+  @media (max-width: 410px) {
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;
 

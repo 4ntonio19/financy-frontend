@@ -13,24 +13,30 @@ const SContainer = styled.div`
     display: flex;
     gap: 10px;
     flex-direction: column;
-    .first {
-      margin-top: 8rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    button:hover {
+      cursor: pointer;
     }
   }
 
-  .register-content {
-    font-family: Montserrat;
-    font-size: 1.5rem;
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    p {
-      margin-top: 8rem;
+  @media (max-width: 769px) {
+    width: 80%;
+    .welcome-content {
+      width: 100%;
     }
-    button:hover {
-      cursor: pointer;
+  }
+  @media (max-width: 574px) {
+    width: 80%;
+    justify-content: center;
+    .welcome-content {
+      font-size: 1.3rem;
+
+      button {
+        width: 10rem;
+        height: 2.5rem;
+      }
     }
   }
 `;

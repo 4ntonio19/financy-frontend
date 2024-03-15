@@ -14,6 +14,7 @@ const SHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     p {
       font-size: 1.5rem;
     }
@@ -30,6 +31,8 @@ const SHeader = styled.header`
   .title-header {
     display: flex;
     align-items: center;
+    width: auto;
+    gap: 4px;
     h1 {
       font-size: 2.5rem;
       font-style: italic;
@@ -39,6 +42,55 @@ const SHeader = styled.header`
     img {
       width: 2rem;
       height: 2rem;
+    }
+  }
+
+  @media (max-width: 574px) {
+    .container {
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .title-header {
+      gap: 4px;
+      width: auto;
+      h1 {
+        font-size: 1.5rem;
+        width: auto;
+      }
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  @media (max-width: 407px) {
+    .container {
+      gap: 5px;
+      p {
+        font-size: 1rem;
+      }
+    }
+    .title-header {
+      width: auto;
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @media (max-width: 345px) {
+    .container {
+      gap: 5px;
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .title-header {
+      width: auto;
+      h1 {
+        font-size: 1rem;
+      }
     }
   }
 `;

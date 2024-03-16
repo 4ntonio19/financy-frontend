@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import BgdImg from "../../assets/background.png";
+import BgdLarge from "../../assets/background-1280.png";
+import BgdMedim from "../../assets/background-768.png";
+import BgdSmall from "../../assets/background-430.png";
 const SContainer = styled.body`
   width: 100%;
   height: 100%;
@@ -11,19 +13,31 @@ const SContainer = styled.body`
     height: 100%;
     display: flex;
     justify-content: center;
-    background-image: url(${BgdImg});
+    background-image: url(${BgdLarge});
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: auto;
   }
-  @media (min-height: 569px) {
-    position: fixed;
-    bottom: 0;
-  }
-  @media (max-width: 769px) {
+
+  position: fixed;
+  bottom: 0;
+
+  @media (max-width: 430px) {
     .content {
-      background-image: none;
+      background-image: url(${BgdSmall});
+      margin: 10px;
+    }
+  }
+  @media (min-width: 768px) {
+    .content {
+      background-image: url(${BgdMedim});
+      margin: 10px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .content {
+      background-image: url(${BgdLarge});
       margin: 10px;
     }
   }

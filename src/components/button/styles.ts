@@ -11,8 +11,11 @@ const SButton = styled.button`
   font-family: Montserrat;
   font-size: 1rem;
   font-weight: 600;
-  button:hover {
-    cursor: pointer;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 

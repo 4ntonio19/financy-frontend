@@ -1,12 +1,19 @@
-import { ReactChild } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import SButton from "./styles";
 
 type ButtonProps = {
-  children: ReactChild;
+  type?: "submit" | "button" | "reset";
+  children: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 
-const Button = (props: ButtonProps) => {
-  return <SButton>{props.children}</SButton>;
+const Button = ({ type, children, onClick, disabled }: ButtonProps) => {
+  return (
+    <SButton type={type} onClick={onClick} disabled={disabled}>
+      {children}
+    </SButton>
+  );
 };
 
 export default Button;

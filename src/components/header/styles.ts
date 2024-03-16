@@ -18,7 +18,9 @@ const SHeader = styled.header`
     p {
       font-size: 1.5rem;
     }
-
+    a {
+      cursor: pointer;
+    }
     a:link {
       color: white;
     }

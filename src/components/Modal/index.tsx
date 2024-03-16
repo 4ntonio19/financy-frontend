@@ -8,7 +8,7 @@ type Props = {
 };
 const ModalAuth = ({ children, isOpen, onClose }: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [MdisOpen, setIsOpen] = useState(isOpen);
+  const [MdisOpen] = useState(isOpen);
   return (
     <Modal
       className="modal"

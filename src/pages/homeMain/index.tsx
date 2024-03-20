@@ -1,5 +1,5 @@
-import HomeContent from "../components/home-content";
-import PageModel from "../components/page-model";
+import HomeContent from "../../components/home-content";
+import PageModel from "../../components/page-model";
 
 const Home = () => {
   return (

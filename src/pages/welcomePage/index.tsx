@@ -2,7 +2,7 @@ import WelcomeContent from "../../components/welcome-content";
 import PageModel from "../../components/page-model";
 import SContainer from "./styles";
 
-const Home = () => {
+const WelcomePage = () => {
   return (
     <SContainer>
       <PageModel>
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default WelcomePage;

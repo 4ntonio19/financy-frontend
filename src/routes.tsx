@@ -1,10 +1,12 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/home";
+import WelcomePage from "./pages/welcomePage/index.tsx";
+import Home from "./pages/homeMain/index.tsx";
 export default function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SContainer } from "./styles";
 import Button from "../button";
+import { Link } from "react-router-dom";
 type Inputs = {
   email: string;
   password: string;
@@ -12,7 +13,7 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = () => {};
   return (
     <SContainer>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +50,9 @@ const LoginModal = () => {
               </span>
             )}
           </label>
-          <Button type="submit">Entrar</Button>
+          <Link to={"/home"}>
+            <Button type="submit">Entrar</Button>
+          </Link>
         </div>
       </form>
     </SContainer>

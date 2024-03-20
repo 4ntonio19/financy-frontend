@@ -1,17 +1,11 @@
-import Footer from "../../components/footer";
-import Header from "../../components/header";
 import HomeContent from "../../components/home-content";
-import SContainer from "./styles";
+import PageModel from "../../components/page-model";
 
 const Home = () => {
   return (
-    <SContainer>
-      <Header />
-      <div className="content">
-        <HomeContent />
-      </div>
-      <Footer />
-    </SContainer>
+    <PageModel>
+      <HomeContent />
+    </PageModel>
   );
 };
 

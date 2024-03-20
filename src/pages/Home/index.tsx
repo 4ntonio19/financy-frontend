@@ -1,7 +1,7 @@
 import HomeContent from "../../components/home-content";
 import PageModel from "../../components/page-model";
 
-const Home = () => {
+const HomeMain = () => {
   return (
     <PageModel>
       <HomeContent />
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeMain;

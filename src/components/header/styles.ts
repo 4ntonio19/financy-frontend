@@ -95,6 +95,17 @@ const SHeader = styled.header`
       }
     }
   }
+
+  .list-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    .link-transaction {
+      border-left: 3px solid white;
+      border-right: 3px solid white;
+      padding: 0 20px 0 20px;
+    }
+  }
 `;
 
 export default SHeader;

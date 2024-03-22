@@ -1,6 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SContainer } from "./styles";
 import Button from "../button";
+import { useNavigate } from "react-router-dom";
 type Inputs = {
   email: string;
   password: string;
@@ -12,7 +13,12 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    localStorage.setItem("user", data.email);
+    navigate("/home");
+  };
   return (
     <SContainer>
       <form onSubmit={handleSubmit(onSubmit)}>

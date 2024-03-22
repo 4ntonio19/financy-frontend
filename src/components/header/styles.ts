@@ -47,10 +47,149 @@ const SHeader = styled.header`
     }
   }
 
-  @media (max-width: 574px) {
+  .list-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .link-transaction {
+      border-left: 3px solid white;
+      border-right: 3px solid white;
+      padding: 0 20px 0 20px;
+    }
+  }
+
+  .logo-perfil {
+    width: auto;
+    height: auto;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .title-header {
+      h1 {
+        font-size: 2rem;
+      }
+
+      img {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+
+    .list-links {
+      gap: 10px;
+      li > a > p {
+        font-size: 1.3rem;
+      }
+      .link-transaction {
+        border-left: 3px solid white;
+        border-right: 3px solid white;
+        padding: 0 10px 0 10px;
+      }
+    }
+
+    .logo-perfil {
+      img {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 832px) {
+    .title-header {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .title-header {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .list-links {
+      gap: 10px;
+      li > a > p {
+        font-size: 1rem;
+      }
+      .link-transaction {
+        border-left: 3px solid white;
+        border-right: 3px solid white;
+        padding: 0 10px 0 10px;
+      }
+    }
+
+    .logo-perfil {
+      img {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  }
+  @media (max-width: 666px) {
+    .title-header {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 618px) {
     .container {
+      flex-direction: column;
       p {
         font-size: 1.2rem;
+      }
+      gap: 0px;
+    }
+    .list-links {
+      gap: 10px;
+      height: 1.5rem;
+      li > a > p {
+        font-size: 1rem;
+      }
+      .link-transaction {
+        border-left: 3px solid white;
+        border-right: 3px solid white;
+        padding: 0 10px 0 10px;
+      }
+    }
+
+    .logo-perfil {
+      img {
+        width: 1.2rem;
+        height: 1.2rem;
       }
     }
 
@@ -93,17 +232,6 @@ const SHeader = styled.header`
       h1 {
         font-size: 1rem;
       }
-    }
-  }
-
-  .list-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    .link-transaction {
-      border-left: 3px solid white;
-      border-right: 3px solid white;
-      padding: 0 20px 0 20px;
     }
   }
 `;

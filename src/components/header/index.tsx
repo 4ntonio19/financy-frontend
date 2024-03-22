@@ -1,4 +1,5 @@
 import LogoHeader from "../../assets/logo-home.svg";
+import LogoPerfil from "../../assets/button-perfil-logo.svg";
 import SHeader from "./styles";
 import { useState } from "react";
 import ModalAuth from "../Modal";
@@ -32,23 +33,30 @@ const Header = () => {
             )}
           </>
         ) : (
-          <ol className="list-links">
-            <li className="link">
-              <a>
-                <p>Home</p>
-              </a>
-            </li>
-            <li className="link-transaction">
-              <a>
-                <p>Transações</p>
-              </a>
-            </li>
-            <li className="link">
-              <a>
-                <p>Balanço</p>
-              </a>
-            </li>
-          </ol>
+          <>
+            <ol className="list-links">
+              <li className="link">
+                <a>
+                  <p>Home</p>
+                </a>
+              </li>
+              <li className="link-transaction">
+                <a>
+                  <p>Transações</p>
+                </a>
+              </li>
+              <li className="link">
+                <a>
+                  <p>Balanço</p>
+                </a>
+              </li>
+              <li>
+                <a className="logo-perfil">
+                  <img src={LogoPerfil} alt="logo do button de perfil" />
+                </a>
+              </li>
+            </ol>
+          </>
         )}
       </div>
     </SHeader>

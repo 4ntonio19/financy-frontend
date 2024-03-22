@@ -11,8 +11,23 @@ export const SContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    p {
+
+    .welcome-text {
       font-size: 1rem;
+    }
+  }
+  @media (max-width: 823px) {
+    .home-header {
+      .welcome-text {
+        font-size: 1rem;
+      }
+    }
+  }
+  @media (max-width: 430px) {
+    .home-header {
+      .welcome-text {
+        font-size: 0.65rem;
+      }
     }
   }
 `;

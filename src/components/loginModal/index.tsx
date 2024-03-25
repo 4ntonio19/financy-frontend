@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { SContainer } from "./styles";
 import Button from "../button";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 type Inputs = {
   email: string;
   password: string;
@@ -13,11 +13,14 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const navigate = useNavigate();
+  const { Login } = useAuth();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    localStorage.setItem("user", data.email);
-    navigate("/home");
+    try {
+      Login(data.email, data.password);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <SContainer>

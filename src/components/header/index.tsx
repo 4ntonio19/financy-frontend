@@ -1,15 +1,17 @@
 import LogoHeader from "../../assets/logo-home.svg";
-import LogoPerfil from "../../assets/button-perfil-logo.svg";
+import LogOutSvg from "../../assets/logout.svg";
 import SHeader from "./styles";
 import { useState } from "react";
 import ModalAuth from "../Modal";
 import LoginModal from "../loginModal";
 import { useLocation } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
   const [modalLoginIsOpen, setIsOpen] = useState(false);
 
   const location = useLocation().pathname;
+  const { logout } = useAuth();
 
   const closeModal = () => {
     setIsOpen(false);
@@ -51,8 +53,8 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a className="logo-perfil">
-                  <img src={LogoPerfil} alt="logo do button de perfil" />
+                <a className="logo-perfil" onClick={logout}>
+                  <img src={LogOutSvg} alt="logo do button de perfil" />
                 </a>
               </li>
             </ol>

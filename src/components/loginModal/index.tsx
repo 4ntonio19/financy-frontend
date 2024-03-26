@@ -13,11 +13,11 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const { Login } = useAuth();
+  const { login } = useAuth();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     try {
-      Login(data.email, data.password);
+      login(data.email, data.password);
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,7 @@
 export interface AuthContextData {
   user: UserSesionObject | undefined;
-  Login(email: string, password: string): Promise<void>;
+  login(email: string, password: string): Promise<void>;
+  logout(): void;
 }
 
 export interface UserSesionObject {

@@ -14,7 +14,7 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
   const [user, setUser] = useState<UserSesionObject | undefined>(undefined);
   const navigate = useNavigate();
 
-  const Login = async (email: string, password: string) => {
+  const login = async (email: string, password: string) => {
     try {
       const response = await api.post("auth/session", {
         email,
@@ -43,8 +43,14 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
     }
   };
 
+  const logout = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    navigate("/");
+  };
+
   return (
-    <AuthContext.Provider value={{ user, Login }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

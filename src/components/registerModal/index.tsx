@@ -1,6 +1,8 @@
 import { SContainer } from "./styles";
 import Button from "../button";
 import { SubmitHandler, useForm } from "react-hook-form";
+import api from "../../services/api";
+import { AxiosError } from "axios";
 // import ModalAuth from "../Modal";
 // import LoginModal from "../loginModal";
 type Inputs = {
@@ -10,14 +12,35 @@ type Inputs = {
   password: string;
   passwordConfirmed: string;
 };
-const RegisterModal = () => {
+
+type Props = {
+  closeModal: () => void;
+};
+
+const RegisterModal = ({ closeModal }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await api.post("/users", data);
+      alert(
+        "Cadastro realizado com sucesso. Faça login para acessar suas finanças."
+      );
+      closeModal();
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        // refatorar a validação para quando o email já existir.
+        const message =
+          error.response?.status === 400 && "Erro ao cadastrar o usuário.";
+        alert(message);
+      }
+    }
+  };
   // const [modalLoginIsOpen, setIsOpen] = useState(false);
   // const closeModal = () => {
   //   setIsOpen(false);
@@ -88,7 +111,7 @@ const RegisterModal = () => {
               <span className="error-message">
                 {errors.password.type === "required"
                   ? "campo obrigatório"
-                  : "A senha precisa ter pelo menos 1 letra, 1 número e 1 simbolo"}
+                  : "A senha precisa ter pelo menos 1 letra, 1 número, 1 simbolo e no mínimo 8 digitos."}
               </span>
             )}
           </label>

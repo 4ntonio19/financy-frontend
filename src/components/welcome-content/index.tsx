@@ -31,7 +31,7 @@ const WelcomeContent = () => {
         <Button onClick={() => setIsOpen(true)}>Cadastre-se</Button>
         {modalIsOpen && (
           <ModalAuth isOpen={modalIsOpen} onClose={closeModal}>
-            <RegisterModal />
+            <RegisterModal closeModal={closeModal} />
           </ModalAuth>
         )}
       </div>

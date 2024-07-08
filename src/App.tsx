@@ -1,8 +1,7 @@
-import Router from "./routes";
 function App() {
   return (
     <>
-      <Router />
+      <h1>New Layout</h1>
     </>
   );
 }

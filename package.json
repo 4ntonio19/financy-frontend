@@ -11,12 +11,9 @@
   },
   "dependencies": {
     "@types/intl": "^1.2.2",
-    "axios": "^1.6.8",
     "intl": "^1.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.51.0",
-    "react-modal": "^3.16.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "^5.0.1",
     "styled-components": "^6.1.8"
@@ -24,7 +21,6 @@
   "devDependencies": {
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
-    "@types/react-modal": "^3.16.3",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",

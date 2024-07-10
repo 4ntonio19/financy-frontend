@@ -22,13 +22,52 @@ export const WrapperHeaderContent = styled.div`
   padding: 0 2rem;
   justify-content: space-between;
   align-items: center;
+
+  .container-logo{
+    img{
+      width: 10rem;
+      height: 32px;
+    }
+  }
+
   nav {
     display: flex;
-    list-style: none;
+    align-items: center;
+    width: 510px;
+    height: 40px;
+    gap: 4px;
+    color: ${({ theme }) => theme.colors.gray._600};
     a {
       text-decoration: none;
-      &:visited {
-        color: black;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 24px;
+      
+      &:visited{
+        color: ${({ theme }) => theme.colors.gray._600};
+      }
+    }
+
+    a.active{
+      background-color: ${({ theme }) => theme.colors.gray._100};
+      border-radius: 6px;
+      color: ${({ theme }) => theme.colors.blue._600};
+    }
+  }
+
+  .account-options{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    button{
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      &:hover{
+        cursor: pointer;
       }
     }
   }

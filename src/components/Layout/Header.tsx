@@ -11,7 +11,7 @@ const Header = () => {
         <div className='container-logo'>
           <img src={logoFinancy} alt='logo da financy' />
         </div>
-        <Navbar/>
+        <Navbar />
         <div className='account-options'>
           <button>
             <CiSettings size='24px' />

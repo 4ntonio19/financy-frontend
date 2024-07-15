@@ -26,10 +26,9 @@ export const WrapperHeaderContent = styled.div`
   .container-logo{
     img{
       width: 10rem;
-      height: 32px;
+      height: 2rem;
     }
   }
-
   .account-options{
     display: flex;
     align-items: center;
@@ -43,6 +42,22 @@ export const WrapperHeaderContent = styled.div`
       &:hover{
         cursor: pointer;
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    .container-logo {
+      img{
+        width: 8rem;
+        height: 2rem;
+      }
+    }
+
+    a{
+      font-size: 0.8rem;
+    }
+
+    .account-options {
+      gap: 0.5rem;
     }
   }
 `

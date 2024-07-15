@@ -6,6 +6,10 @@ type NavLink = {
   pageName: string
 }
 
+type Props = {
+  styles?: React.CSSProperties;
+}
+
 const links: NavLink[] = [
   { path: "/", pageName: "Dashboard" },
   { path: "/transactions", pageName: "Transações" },
@@ -14,12 +18,12 @@ const links: NavLink[] = [
   { path: "/wallet", pageName: "Carteira" },
 ]
 
-const Navbar = () => {
+const Navbar = ({ styles }: Props) => {
   const { pathname } = useLocation()
   return (
-    <Container>
+    <Container style={styles}>
       {links.map((link) => (
-        <Link to={link.path} className={pathname === link.path ? "active" : ""}>
+        <Link key={link.path} to={link.path} className={pathname === link.path ? "active" : ""}>
           {link.pageName}
         </Link>
       ))}

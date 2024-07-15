@@ -7,6 +7,7 @@ export const themes = {
         },
         gray: {
             _100: '#F5F8FF',
+            _200: '#ECEFF2',
             _600: '#516778'
         },
         blue: {

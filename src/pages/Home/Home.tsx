@@ -1,23 +1,35 @@
+import FilterPeriod from "../../components/Filter/FilterPeriod"
 import { ContainerHome } from "./styles"
 
 const Home = () => {
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [endDate, setEndDate] = useState();
+  // const onChange = (dates: any) => {
+  //   const [start, end] = dates;
+  //   setStartDate(start);
+  //   setEndDate(end);
+  // }
   return (
     <ContainerHome>
       <div className='home-content'>
         <header className='home-header'>
-          <h1>Hello, Toin!</h1>
+          <h1>Olá, Antonio!</h1>
           <section className='container-period'>
-            <ul>
-              <li>This month</li>
-              <li>Last month</li>
-              <li>This year</li>
-              <li>Last 12 months</li>
-            </ul>
-
-            <button>Select period</button>
+            <FilterPeriod/>
           </section>
         </header>
       </div>
+      {/* <DatePicker
+      selected={startDate}
+      onChange={onChange}
+      minDate={new Date()}
+      maxDate={addMonths(new Date(), 5)}
+      startDate={startDate}
+      endDate={endDate}
+      selectsRange
+      inline
+      showDisabledMonthNavigation
+    /> */}
     </ContainerHome>
   )
 }

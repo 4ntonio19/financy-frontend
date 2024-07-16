@@ -30,9 +30,8 @@ export const ContainerHome = styled.div`
   }
 `
 
-export const ContainerIndicators = styled.section`
+export const Section = styled.section`
   display: flex;
-  gap: 2rem;
   justify-content: space-between;
   flex-wrap: wrap;
 `;

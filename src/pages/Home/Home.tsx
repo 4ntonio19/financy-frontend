@@ -1,7 +1,11 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa"
 import Card from "../../components/CardIndicators"
 import FilterPeriod from "../../components/Filter/FilterPeriod"
-import { ContainerHome, ContainerIndicators } from "./styles"
+import { ContainerHome, Section } from "./styles"
+import CardTransactions from "../../components/CardTransactions"
+import { LuPlusCircle } from "react-icons/lu"
+import { FiMinusCircle } from "react-icons/fi"
+import { GoArrowSwitch } from "react-icons/go"
 
 const Home = () => {
   return (
@@ -13,11 +17,49 @@ const Home = () => {
             <FilterPeriod />
           </section>
         </header>
-        <ContainerIndicators>
-          <Card title="Balanço" value='R$5,502.45' icon={<FaArrowUp color="#17B26A"/>} color="#155EEF" percentage="12,5%"/>
-          <Card title="Renda" value='R$9,450.00' icon={<FaArrowUp color="#17B26A" />} percentage="27%"/>
-          <Card title="Gasto" value='R$3,845.55' icon={<FaArrowDown color="#F04438"/>} percentage="-15%"/>
-        </ContainerIndicators>
+        <Section>
+          <Card
+            title='Balanço'
+            value='R$5,502.45'
+            icon={<FaArrowUp color='#17B26A' />}
+            color='#155EEF'
+            percentage='12,5%'
+          />
+          <Card
+            title='Entradas'
+            value='R$9,450.00'
+            icon={<FaArrowUp color='#17B26A' />}
+            color='#22292F'
+            percentage='27%'
+          />
+          <Card
+            title='Saídas'
+            value='R$3,845.55'
+            icon={<FaArrowDown color='#F04438' />}
+            color='#22292F'
+            percentage='-15%'
+          />
+        </Section>
+        <Section>
+          <CardTransactions
+            bgdIconColor="#DCFAE6"
+            title='Adicionar entrada'
+            explanation='Crie manualmente uma entrada'
+            icon={<LuPlusCircle color="#0B9055" />}
+          />
+          <CardTransactions
+            bgdIconColor="#FEE4E2"
+            title='Adicionar saída'
+            explanation='Crie manualmente uma saída'
+            icon={<FiMinusCircle color="#D92D20" />}
+          />
+          <CardTransactions
+            bgdIconColor="#F9FAFB"
+            title='Transferir dinheiro'
+            explanation='Selecione o valor para transferir'
+            icon={<GoArrowSwitch color="#155EEF" />}
+          />
+        </Section>
       </div>
     </ContainerHome>
   )

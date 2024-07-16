@@ -8,6 +8,9 @@ export const ContainerHome = styled.div`
   .home-content{
     width: 90%;
     margin: 3rem auto auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
 
@@ -26,3 +29,10 @@ export const ContainerHome = styled.div`
     gap: 8px;
   }
 `
+
+export const ContainerIndicators = styled.section`
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;

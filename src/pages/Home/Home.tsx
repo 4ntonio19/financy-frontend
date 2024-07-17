@@ -1,11 +1,12 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa"
 import Card from "../../components/CardIndicators"
 import FilterPeriod from "../../components/Filter/FilterPeriod"
-import { ContainerHome, Section } from "./styles"
+import { ContainerHome, SSection } from "./styles"
 import CardTransactions from "../../components/CardTransactions"
 import { LuPlusCircle } from "react-icons/lu"
 import { FiMinusCircle } from "react-icons/fi"
 import { GoArrowSwitch } from "react-icons/go"
+import CategoryChart from "../../components/CategoryChart"
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
             <FilterPeriod />
           </section>
         </header>
-        <Section>
+        <SSection>
           <Card
             title='Balanço'
             value='R$5,502.45'
@@ -39,8 +40,8 @@ const Home = () => {
             color='#22292F'
             percentage='-15%'
           />
-        </Section>
-        <Section>
+        </SSection>
+        <SSection>
           <CardTransactions
             bgdIconColor="#DCFAE6"
             title='Adicionar entrada'
@@ -59,7 +60,8 @@ const Home = () => {
             explanation='Selecione o valor para transferir'
             icon={<GoArrowSwitch color="#155EEF" />}
           />
-        </Section>
+        </SSection>
+        <CategoryChart/>
       </div>
     </ContainerHome>
   )

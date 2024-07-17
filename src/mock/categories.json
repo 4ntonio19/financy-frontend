@@ -1,0 +1,32 @@
+[
+    {
+        "icon": "icon1",
+        "title": "Casa",
+        "percentage": 41,
+        "color": "#9E77ED"
+    },
+    {
+        "icon": "icon2",
+        "title": "Cartão de crédito",
+        "percentage": 21,
+        "color": "#F04438"
+    },
+    {
+        "icon": "icon3",
+        "title": "Transporte",
+        "percentage": 13,
+        "color": "#0BA5EC"
+    },
+    {
+        "icon": "icon4",
+        "title": "Alimentação",
+        "percentage": 9,
+        "color": "#17B26A"
+    },
+    {
+        "icon": "icon5",
+        "title": "Compras",
+        "percentage": 3,
+        "color": "#4E5BA6"
+    }
+]

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerTransactions = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
-    width: 24rem;
+    width: 100%;
     padding: 1.25rem;
     border: 1px solid ${({ theme }) => theme.colors.gray._200};
     border-radius: 12px;

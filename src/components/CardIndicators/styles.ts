@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CardContainer = styled.div`
-  width: 24rem;
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 2rem;
   display: flex;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
 
   section{
     display: flex;
-    
+    flex-wrap: wrap;
   }
 
   span {

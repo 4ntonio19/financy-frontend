@@ -7,7 +7,7 @@ export const ContainerHome = styled.div`
 
   .home-content{
     width: 90%;
-    margin: 3rem auto auto;
+    margin: 3rem auto 1rem auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -30,8 +30,8 @@ export const ContainerHome = styled.div`
   }
 `
 
-export const Section = styled.section`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+export const SSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
 `;

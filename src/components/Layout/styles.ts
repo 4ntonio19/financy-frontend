@@ -9,8 +9,9 @@ export const ContainerLayout = styled.div`
 `
 
 export const ContainerHeader = styled.header`
-  width: 100%;
-  height: 72px;
+  width: 1440px;
+  max-width: 100%;
+  height: 4.5rem;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: center;
@@ -18,8 +19,8 @@ export const ContainerHeader = styled.header`
 
 export const WrapperHeaderContent = styled.div`
   width: 90%;
+  margin: 0 auto;
   display: flex;
-  padding: 0 2rem;
   justify-content: space-between;
   align-items: center;
 

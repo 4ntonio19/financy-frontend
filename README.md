@@ -71,4 +71,4 @@ http://localhost:5173/
 
 ## Créditos
 
-Designer: [Nome do Designer](link-para-o-perfil-do-designer)
+Designer: https://www.figma.com/community/file/1357072393691339649/financy-personal-finances-dashboard

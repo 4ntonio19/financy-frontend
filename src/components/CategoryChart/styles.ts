@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const ContainerChartCategory = styled.div`
-  width: 24rem;
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 1.25rem;
   border-radius: 0.75rem;
@@ -15,10 +15,11 @@ export const ContainerChartCategory = styled.div`
     line-height: 24px;
     color: ${({ theme }) => theme.colors.gray._900};
   }
-  img {
-    align-self: center;
-    width: 240px;
-    height: 240px;
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 `
 

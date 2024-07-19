@@ -7,6 +7,7 @@ import { LuPlusCircle } from "react-icons/lu"
 import { FiMinusCircle } from "react-icons/fi"
 import { GoArrowSwitch } from "react-icons/go"
 import CategoryChart from "../../components/CategoryChart"
+import TransactionsList from "../../components/TransactionsList"
 
 const Home = () => {
   return (
@@ -43,25 +44,29 @@ const Home = () => {
         </SSection>
         <SSection>
           <CardTransactions
-            bgdIconColor="#DCFAE6"
+            bgdIconColor='#DCFAE6'
             title='Adicionar entrada'
             explanation='Crie manualmente uma entrada'
-            icon={<LuPlusCircle color="#0B9055" />}
+            icon={<LuPlusCircle color='#0B9055' />}
           />
           <CardTransactions
-            bgdIconColor="#FEE4E2"
+            bgdIconColor='#FEE4E2'
             title='Adicionar saída'
             explanation='Crie manualmente uma saída'
-            icon={<FiMinusCircle color="#D92D20" />}
+            icon={<FiMinusCircle color='#D92D20' />}
           />
           <CardTransactions
-            bgdIconColor="#F9FAFB"
+            bgdIconColor='#F9FAFB'
             title='Transferir dinheiro'
             explanation='Selecione o valor para transferir'
-            icon={<GoArrowSwitch color="#155EEF" />}
+            icon={<GoArrowSwitch color='#155EEF' />}
           />
         </SSection>
-        <CategoryChart/>
+        <SSection className="transactions-section">
+          <CategoryChart />
+          <TransactionsList />
+          <div></div>
+        </SSection>
       </div>
     </ContainerHome>
   )

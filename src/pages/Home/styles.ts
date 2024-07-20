@@ -36,6 +36,6 @@ export const SSection = styled.section`
   gap: 2rem;
 
   &.transactions-section {
-    grid-template-columns: 1fr 2.07fr;
+    grid-template-columns: 1fr 2fr;
   }
 `;

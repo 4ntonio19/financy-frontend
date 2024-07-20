@@ -6,11 +6,11 @@ export const ContainerLayout = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 `
 
 export const ContainerHeader = styled.header`
-  width: 1440px;
-  max-width: 100%;
+  width: 100%;
   height: 4.5rem;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
@@ -19,6 +19,7 @@ export const ContainerHeader = styled.header`
 
 export const WrapperHeaderContent = styled.div`
   width: 90%;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

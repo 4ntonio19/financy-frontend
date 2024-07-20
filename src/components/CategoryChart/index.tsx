@@ -1,12 +1,12 @@
 import { CategoryItem, CategoryList, ContainerChartCategory } from "./styles"
 import { AiOutlineHome } from "react-icons/ai"
 
-import categoriesList from "../../mock/categories.json"
+import mock from "../../mock/mock.json"
 import { useState } from "react"
 import { PieChart } from "@mui/x-charts"
 const CategoryChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [categories, setCategories] = useState(categoriesList)
+  const [categories, setCategories] = useState(mock.categories)
   const data = categories.map((category) => {
     return {
       label: category.title,

@@ -1,0 +1,107 @@
+{
+  "categories": [
+    {
+      "icon": "icon1",
+      "title": "Casa",
+      "percentage": 41,
+      "color": "#9E77ED"
+    },
+    {
+      "icon": "icon2",
+      "title": "Cartão de crédito",
+      "percentage": 21,
+      "color": "#F04438"
+    },
+    {
+      "icon": "icon3",
+      "title": "Transporte",
+      "percentage": 13,
+      "color": "#0BA5EC"
+    },
+    {
+      "icon": "icon4",
+      "title": "Alimentação",
+      "percentage": 9,
+      "color": "#17B26A"
+    },
+    {
+      "icon": "icon5",
+      "title": "Compras",
+      "percentage": 3,
+      "color": "#4E5BA6"
+    }
+  ],
+
+  "transactions": [
+    {
+        "description": "Padaria X",
+        "category": "Alimentação",
+        "date": "2024/07/19",
+        "value": "-$9.90",
+        "type": true
+    },
+    {
+        "description": "Conta de luz",
+        "category": "Casa",
+        "date": "2024/07/20",
+        "value": "-$120.00",
+        "type": false
+    },
+    {
+        "description": "Pagamento da fatura",
+        "category": "Cartão de Crédito",
+        "date": "2024/07/21",
+        "value": "-$500.00",
+        "type": false
+    },
+    {
+        "description": "Passagem de ônibus",
+        "category": "Transporte",
+        "date": "2024/07/22",
+        "value": "-$3.50",
+        "type": false
+    },
+    {
+        "description": "Restaurante Y",
+        "category": "Alimentação",
+        "date": "2024/07/23",
+        "value": "-$25.00",
+        "type": false
+    },
+    {
+        "description": "Supermercado Z",
+        "category": "Compras",
+        "date": "2024/07/24",
+        "value": "-$75.00",
+        "type": false
+    },
+    {
+        "description": "Farmácia ABC",
+        "category": "Saúde",
+        "date": "2024/07/25",
+        "value": "-$15.50",
+        "type": false
+    },
+    {
+        "description": "Assinatura de streaming",
+        "category": "Entretenimento",
+        "date": "2024/07/26",
+        "value": "-$10.00",
+        "type": false
+    },
+    {
+        "description": "Estacionamento",
+        "category": "Transporte",
+        "date": "2024/07/27",
+        "value": "-$7.00",
+        "type": false
+    },
+    {
+        "description": "Lanche na faculdade",
+        "category": "Alimentação",
+        "date": "2024/07/28",
+        "value": "-$6.00",
+        "type": false
+    }
+]
+}

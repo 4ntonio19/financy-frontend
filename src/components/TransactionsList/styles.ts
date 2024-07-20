@@ -8,6 +8,8 @@ export const ContainerTransactionsList = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.gray._200};
+
+  overflow-x: auto;
   header {
     margin: 1.5rem;
     display: flex;
@@ -29,6 +31,7 @@ export const ContainerTransactionsList = styled.div`
   table {
     border-collapse: collapse;
     text-align: left;
+    overflow-x: hidden;
     th,
     td {
       padding: 0.875rem 1.5rem;

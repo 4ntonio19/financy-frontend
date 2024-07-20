@@ -19,7 +19,7 @@ const Home = () => {
             <FilterPeriod />
           </section>
         </header>
-        <SSection>
+        <SSection className="indicators-section">
           <Card
             title='Balanço'
             value='R$5,502.45'

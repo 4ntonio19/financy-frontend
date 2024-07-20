@@ -13,6 +13,15 @@ export const ContainerTransactions = styled.div`
         cursor: pointer;
     }
 
+    @media (max-width: 640px) {
+        padding: 1rem;
+        justify-content: center;
+        gap: 0px;
+        span {
+            display: none;
+        }
+    }
+
     .container-icon {
         width: 3rem;
         height: 3rem;
@@ -46,6 +55,15 @@ export const ContainerTransactions = styled.div`
             font-size: 0.875rem;
             line-height: 20px;
             color: ${({ theme }) => theme.colors.gray._600};
+        }
+
+        @media (max-width: 768px) {
+            span {
+                font-size: 0.8rem;
+            }
+            p {
+                display: none;
+            }
         }
     }
 `;

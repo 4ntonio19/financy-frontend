@@ -19,6 +19,7 @@ export const CardContainer = styled.div`
   section{
     display: flex;
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   span {
@@ -28,6 +29,19 @@ export const CardContainer = styled.div`
     flex: 1;
   }
 
+  @media (max-width: 1024px) {
+    padding: 1rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    span {
+      font-size: 1.6rem;
+    }
+  }
 
   .container-percentage {
     display: flex;
@@ -50,4 +64,6 @@ export const CardContainer = styled.div`
       line-height: 20px;
     }
   }
+
+
 `

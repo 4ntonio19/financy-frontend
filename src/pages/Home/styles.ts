@@ -28,6 +28,16 @@ export const ContainerHome = styled.div`
     display: flex;
     gap: 8px;
   }
+
+  @media (max-width: 980px) {
+    header {
+      flex-direction: column;
+      gap: 1rem;
+      .container-period{
+        align-self: center;
+      }
+    }
+  }
 `
 
 export const SSection = styled.section`
@@ -35,7 +45,20 @@ export const SSection = styled.section`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 
+  
   &.transactions-section {
     grid-template-columns: 1fr 2fr;
+  }
+
+
+  @media (max-width: 768px) {
+    &.indicators-section {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    &.transactions-section {
+      grid-template-columns: 1fr;
+    }
   }
 `;

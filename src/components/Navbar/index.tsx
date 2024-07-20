@@ -12,10 +12,10 @@ type Props = {
 
 const links: NavLink[] = [
   { path: "/", pageName: "Dashboard" },
-  { path: "/transactions", pageName: "Transações" },
-  { path: "/analytics", pageName: "Analytics" },
-  { path: "/accounts", pageName: "Contas" },
-  { path: "/wallet", pageName: "Carteira" },
+  // { path: "/transactions", pageName: "Transações" },
+  // { path: "/analytics", pageName: "Analytics" },
+  // { path: "/accounts", pageName: "Contas" },
+  // { path: "/wallet", pageName: "Carteira" },
 ]
 
 const Navbar = ({ styles }: Props) => {

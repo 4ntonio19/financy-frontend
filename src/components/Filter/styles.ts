@@ -14,7 +14,6 @@ export const WrapperFilter = styled.ul`
         color: ${({ theme }) => theme.colors.gray._600};
         font-size: 0.9rem;
         font-weight: 600;
-        line-height: 20px;
         padding: 8px 16px;
         border: 1px solid ${({ theme }) => theme.colors.gray._200};
         cursor: pointer;
@@ -45,6 +44,17 @@ export const WrapperFilter = styled.ul`
             svg{
                 color: ${({ theme }) => theme.colors.blue._600};
             }
+        }
+    }
+
+    @media (max-width: 768px) {
+        li {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            &:last-child {
+            border-radius: 8px;
+            margin-left: 0.5rem;
+        }
         }
     }
 `;

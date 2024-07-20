@@ -6,7 +6,7 @@ import mock from "../../mock/mock.json"
 import { useState } from "react"
 
 const TransactionsList = () => {
-  const [lastTransactions, setLastTransactions] = useState(mock.transactions)
+  const [lastTransactions] = useState(mock.transactions)
   return (
     <ContainerTransactionsList>
       <header>

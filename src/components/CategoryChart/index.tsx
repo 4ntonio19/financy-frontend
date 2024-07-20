@@ -6,7 +6,7 @@ import { useState } from "react"
 import { PieChart } from "@mui/x-charts"
 const CategoryChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [categories, setCategories] = useState(mock.categories)
+  const [categories] = useState(mock.categories)
   const data = categories.map((category) => {
     return {
       label: category.title,

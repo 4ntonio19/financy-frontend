@@ -1,8 +1,7 @@
 import { ContainerHeader, WrapperHeaderContent } from "./styles"
 import logoFinancy from "../../assets/Logo.png"
-import { CiSettings } from "react-icons/ci"
-import { IoMdNotificationsOutline } from "react-icons/io"
-import { FaRegUserCircle } from "react-icons/fa"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import Navbar from "../Navbar"
 const Header = () => {
   return (
@@ -14,12 +13,12 @@ const Header = () => {
         <Navbar />
         <div className='account-options'>
           <button>
-            <CiSettings size='24px' />
+          <FontAwesomeIcon icon={"fa-solid fa-gear" as IconProp} size={'xl'} color="#516778"/>
           </button>
           <button>
-            <IoMdNotificationsOutline size='24px' />
+          <FontAwesomeIcon icon={"fa-regular fa-bell" as IconProp} size={'xl'} color="#516778"/>
           </button>
-          <FaRegUserCircle size='28px' />
+          <FontAwesomeIcon icon={"fa-regular fa-circle-user" as IconProp} size={'xl'} color="#516778"/>
         </div>
       </WrapperHeaderContent>
     </ContainerHeader>

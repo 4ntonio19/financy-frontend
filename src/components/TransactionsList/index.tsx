@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { BsThreeDotsVertical } from "react-icons/bs"
 import { ContainerTransactionsList } from "./styles"
-import { LuDot } from "react-icons/lu"
 import mock from "../../mock/mock.json"
 import { useState } from "react"
-
+import { formatCurrency } from "../../utils/formatterCurrency"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 const TransactionsList = () => {
   const [lastTransactions] = useState(mock.transactions)
   return (
@@ -23,15 +23,15 @@ const TransactionsList = () => {
         </tr>
         {lastTransactions.map((transaction) => (
           <tr>
-            <td style={{ display: "flex", alignItems: "center", color: "#101828" }}>
-              <LuDot />
+            <td>
+            <FontAwesomeIcon icon={"fa-solid fa-circle" as IconProp} size="xs" color={transaction.category_color} style={{marginRight: '0.5rem'}} />
               {transaction.description}
             </td>
             <td>{transaction.category}</td>
             <td>{transaction.date}</td>
-            <td className={transaction.type ? 'income' : 'expense'}>{transaction.value}</td>
+            <td className={transaction.type ? 'income' : 'expense'}>{formatCurrency(transaction.value)}</td>
             <td>
-              <BsThreeDotsVertical />
+            <FontAwesomeIcon icon={"fa-solid fa-ellipsis-vertical" as IconProp} />
             </td>
           </tr>
         ))}

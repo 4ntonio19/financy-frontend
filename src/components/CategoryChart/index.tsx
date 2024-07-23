@@ -1,6 +1,6 @@
 import { CategoryItem, CategoryList, ContainerChartCategory } from "./styles"
-import { AiOutlineHome } from "react-icons/ai"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import mock from "../../mock/mock.json"
 import { useEffect, useRef, useState } from "react"
 import { PieChart } from "@mui/x-charts"
@@ -57,7 +57,7 @@ const CategoryChart = () => {
               <div
                 className='container-icon'
                 style={{ backgroundColor: `${item.color}` }}>
-                <AiOutlineHome />
+                <FontAwesomeIcon icon={item.icon as IconProp}/>
               </div>
               <span>{item.title}</span>
             </section>

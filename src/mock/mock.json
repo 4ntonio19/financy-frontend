@@ -1,33 +1,33 @@
 {
   "categories": [
     {
-      "icon": "icon1",
+      "icon": "fa-solid fa-house",
       "title": "Casa",
-      "percentage": 41,
+      "percentage": 15.52,
       "color": "#9E77ED"
     },
     {
-      "icon": "icon2",
+      "icon": "fa-solid fa-credit-card",
       "title": "Cartão de crédito",
-      "percentage": 21,
+      "percentage": 57.30,
       "color": "#F04438"
     },
     {
-      "icon": "icon3",
+      "icon": "fa-solid fa-bus",
       "title": "Transporte",
-      "percentage": 13,
+      "percentage": 1.20,
       "color": "#0BA5EC"
     },
     {
-      "icon": "icon4",
+      "icon": "fa-solid fa-burger",
       "title": "Alimentação",
-      "percentage": 9,
+      "percentage": 4.69,
       "color": "#17B26A"
     },
     {
-      "icon": "icon5",
+      "icon": "fa-solid fa-cart-shopping",
       "title": "Compras",
-      "percentage": 3,
+      "percentage": 21.19,
       "color": "#4E5BA6"
     }
   ],
@@ -37,71 +37,113 @@
         "description": "Padaria X",
         "category": "Alimentação",
         "date": "2024/07/19",
-        "value": "-$9.90",
-        "type": true
+        "value": -9.90,
+        "type": false,
+        "category_color": "#17B26A"
     },
     {
         "description": "Conta de luz",
         "category": "Casa",
         "date": "2024/07/20",
-        "value": "-$120.00",
-        "type": false
+        "value": -120.00,
+        "type": false,
+        "category_color": "#9E77ED"
     },
     {
         "description": "Pagamento da fatura",
-        "category": "Cartão de Crédito",
+        "category": "Cartão de crédito",
         "date": "2024/07/21",
-        "value": "-$500.00",
-        "type": false
+        "value": -500.00,
+        "type": false,
+        "category_color": "#F04438"
     },
     {
         "description": "Passagem de ônibus",
         "category": "Transporte",
         "date": "2024/07/22",
-        "value": "-$3.50",
-        "type": false
+        "value": -3.50,
+        "type": false,
+        "category_color": "#0BA5EC"
     },
     {
         "description": "Restaurante Y",
         "category": "Alimentação",
         "date": "2024/07/23",
-        "value": "-$25.00",
-        "type": false
+        "value": -25.00,
+        "type": false,
+        "category_color": "#17B26A"
     },
     {
         "description": "Supermercado Z",
         "category": "Compras",
         "date": "2024/07/24",
-        "value": "-$75.00",
-        "type": false
+        "value": -75.00,
+        "type": false,
+        "category_color": "#4E5BA6"
     },
     {
         "description": "Farmácia ABC",
-        "category": "Saúde",
+        "category": "Casa",
         "date": "2024/07/25",
-        "value": "-$15.50",
-        "type": false
+        "value": -15.50,
+        "type": false,
+        "category_color": "#9E77ED"
     },
     {
-        "description": "Assinatura de streaming",
-        "category": "Entretenimento",
-        "date": "2024/07/26",
-        "value": "-$10.00",
-        "type": false
+        "description": "Salário",
+        "category": "Transferência",
+        "date": "2024/07/25",
+        "value": 2000.00,
+        "type": true,
+        "category_color": "#000000"
     },
     {
         "description": "Estacionamento",
         "category": "Transporte",
         "date": "2024/07/27",
-        "value": "-$7.00",
-        "type": false
+        "value": -7.00,
+        "type": false,
+        "category_color": "#0BA5EC"
     },
     {
         "description": "Lanche na faculdade",
         "category": "Alimentação",
         "date": "2024/07/28",
-        "value": "-$6.00",
-        "type": false
+        "value": -6.00,
+        "type": false,
+        "category_color": "#17B26A"
+    },
+    {
+        "description": "Transferência recebida",
+        "category": "Transferência",
+        "date": "2024/07/28",
+        "value": 150.00,
+        "type": true,
+        "category_color": "#000000"
+    },
+    {
+        "description": "Assinatura de streaming",
+        "category": "Compras",
+        "date": "2024/07/26",
+        "value": -10.00,
+        "type": false,
+        "category_color": "#4E5BA6"
+    },
+    {
+        "description": "Compra de roupas",
+        "category": "Compras",
+        "date": "2024/07/30",
+        "value": -100.00,
+        "type": false,
+        "category_color": "#4E5BA6"
+    },
+    {
+        "description": "Transferência enviada",
+        "category": "Transferência",
+        "date": "2024/07/30",
+        "value": -50.00,
+        "type": false,
+        "category_color": "#000000"
     }
-]
+  ]
 }

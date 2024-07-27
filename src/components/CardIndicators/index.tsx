@@ -10,7 +10,7 @@ type Props = {
   percentage: string
   color?: string
 }
-const Card = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
+const CardIndicators = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
   return (
     <CardContainer>
       <p>{title}</p>
@@ -25,4 +25,4 @@ const Card = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
   )
 }
 
-export default Card
+export default CardIndicators

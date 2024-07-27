@@ -1,13 +1,15 @@
-import { Outlet } from "react-router-dom"
 import { ContainerLayout } from "./styles"
 import Header from "./Header"
+import React from "react"
 
-
-const Layout = () => {
+type Props = {
+  children: React.ReactNode
+}
+const Layout = ( { children }: Props ) => {
   return (
     <ContainerLayout>
         <Header/>
-        <Outlet/>
+        {children}
     </ContainerLayout>
   )
 }

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ContainerTransactionsList } from "./styles"
-import mock from "../../mock/mock.json"
-import { useState } from "react"
 import { formatCurrency } from "../../utils/formatterCurrency"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { useSelector } from "react-redux"
+import { selectTransactions } from "../../store/Transactions/transactionsSlice"
 const TransactionsList = () => {
-  const [lastTransactions] = useState(mock.transactions)
+  const lastTransactions = useSelector(selectTransactions)
   return (
     <ContainerTransactionsList>
       <header>
@@ -25,17 +25,17 @@ const TransactionsList = () => {
         </thead>
         <tbody>
           {lastTransactions.map((transaction) => (
-            <tr key={transaction.description}>
+            <tr key={transaction.title}>
               <td>
                 <FontAwesomeIcon
                   icon={"fa-solid fa-circle" as IconProp}
                   size='xs'
-                  color={transaction.category_color}
+                  color={transaction.category.color}
                   style={{ marginRight: "0.5rem" }}
                 />
-                {transaction.description}
+                {transaction.title}
               </td>
-              <td>{transaction.category}</td>
+              <td>{transaction.category.name}</td>
               <td>{transaction.date}</td>
               <td className={transaction.type ? "income" : "expense"}>
                 {formatCurrency(transaction.value)}

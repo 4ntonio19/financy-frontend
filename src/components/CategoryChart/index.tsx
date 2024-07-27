@@ -1,12 +1,13 @@
 import { CategoryItem, CategoryList, ContainerChartCategory } from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import mock from "../../mock/mock.json"
 import { useEffect, useRef, useState } from "react"
 import { PieChart } from "@mui/x-charts"
+import { useSelector } from "react-redux"
+import { selectCategories } from "../../store/Transactions/transactionsSlice"
 const CategoryChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [categories] = useState(mock.categories)
+  const categories = useSelector(selectCategories)
   const [chartWidth, setChartWidth] = useState(0)
   const chartContainerRef = useRef<HTMLDivElement>(null)
 
@@ -25,8 +26,8 @@ const CategoryChart = () => {
 
   const data = categories.map((category) => {
     return {
-      label: category.title,
-      value: category.percentage,
+      label: category.name,
+      value: Number(category.percentage), // Convert the value to a number
       color: category.color,
     }
   })
@@ -52,14 +53,14 @@ const CategoryChart = () => {
       </div>
       <CategoryList>
         {categories.map((item) => (
-          <CategoryItem key={item.title}>
+          <CategoryItem key={item.name}>
             <section>
               <div
                 className='container-icon'
                 style={{ backgroundColor: `${item.color}` }}>
                 <FontAwesomeIcon icon={item.icon as IconProp}/>
               </div>
-              <span>{item.title}</span>
+              <span>{item.name}</span>
             </section>
             <p className='percentage'>{item.percentage}%</p>
           </CategoryItem>

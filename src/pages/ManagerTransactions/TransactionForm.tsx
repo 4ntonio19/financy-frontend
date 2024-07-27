@@ -8,20 +8,41 @@ import DateField from "../../components/Fields/DateField"
 import SelectField from "../../components/Fields/SelectField"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { useDispatch } from "react-redux"
+import { ITransaction } from "../../entitites/ITransactions"
+import { addTransaction } from "../../store/Transactions/transactionsSlice"
 
 type FormFields = {
   title: string
   value: number
   category: string
+  transactionDate: string
 }
 
 type Props = {
   typeTransaction: "income" | "expense"
 }
 const TransactionForm = ({ typeTransaction }: Props) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const methods = useForm<FormFields>()
-  const onSubmit = (data: FormFields) => console.log(data)
+  const onSubmit = (data: FormFields) => {
+    const objToSend: ITransaction = {
+      title: data.title,
+      date: data.transactionDate,
+      value: data.value,
+      type: typeTransaction === "income" ? true : false,
+      category: {
+        icon: "fa-solid fa-house",
+        name: "Casa",
+        percentage: 15.52,
+        color: "#9E77ED",
+      },
+    }
+
+    dispatch(addTransaction(objToSend))
+    navigate("/dashboard")
+  }
   return (
     <Modal
       onClickSubmit={methods.handleSubmit(onSubmit)}

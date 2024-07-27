@@ -16,6 +16,7 @@ const NumberField = ({ label, inputName, defaultValue, placeholder }: Props) => 
       <input
         {...register(inputName, { required: "Campo obrigatório" })}
         type='number'
+        max={0}
         defaultValue={defaultValue}
         placeholder={placeholder}
       />

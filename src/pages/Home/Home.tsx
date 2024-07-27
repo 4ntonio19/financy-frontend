@@ -4,16 +4,16 @@ import { ContainerHome, SSection } from "./styles"
 import CardTransactions from "../../components/CardTransactions"
 import CategoryChart from "../../components/CategoryChart"
 import TransactionsList from "../../components/TransactionsList"
-import mock from "../../mock/mock.json"
 import { useEffect, useState } from "react"
 import { formatCurrency } from "../../utils/formatterCurrency"
-import { ITransaction } from "../../entitites/ITransactions"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 import { Outlet } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { selectTransactions } from "../../store/Transactions/transactionsSlice"
 const Home = () => {
-  const [transactions] = useState<ITransaction[]>(mock.transactions)
+  const transactions = useSelector(selectTransactions)
   const [balance, setBalance] = useState("")
   const [incomes, setIncomes] = useState("")
   const [expenses, setExpenses] = useState("")
@@ -24,13 +24,13 @@ const Home = () => {
     }, 0)
 
     const totalIncomes = transactions
-      .filter((transaction) => transaction.value > 0)
+      .filter((transaction) => transaction.type === true)
       .reduce((acc, cur) => {
         return acc + cur.value
       }, 0)
 
     const totalExpenses = transactions
-      .filter((transaction) => transaction.value < 0)
+      .filter((transaction) => transaction.type === false)
       .reduce((acc, cur) => {
         return acc + cur.value
       }, 0)
@@ -68,7 +68,7 @@ const Home = () => {
             />
             <CardIndicators
               title='Saídas'
-              value={expenses}
+              value={`${expenses}`}
               icon='fa-solid fa-arrow-down'
               colorIcon='#F04438'
               color='#22292F'

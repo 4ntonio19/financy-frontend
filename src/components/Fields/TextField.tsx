@@ -19,7 +19,7 @@ const TextField = ({ label, inputName, defaultValue, placeholder }: Props) => {
         defaultValue={defaultValue}
         placeholder={placeholder}
       />
-      {errors[inputName] && <ErrorMessage>{errors[inputName].message?.toString()}</ErrorMessage>}
+      {errors[inputName] && <ErrorMessage>{errors[inputName]?.message?.toString()}</ErrorMessage>}
     </ContainerField>
   )
 }

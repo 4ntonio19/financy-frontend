@@ -21,7 +21,7 @@ type Props = {
             <option value={4}>Alimentação</option>
             <option value={5}>Compras</option>
         </select>
-        {errors[inputName] && <ErrorMessage>{errors[inputName].message?.toString()}</ErrorMessage>}
+        {errors[inputName] && <ErrorMessage>{errors[inputName]?.message?.toString()}</ErrorMessage>}
       </ContainerField>
     )
   }

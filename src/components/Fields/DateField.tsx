@@ -20,7 +20,7 @@ const DateField = ({ label, inputName, defaultValue, placeholder }: Props) => {
         placeholder={placeholder}
         max='9999-31-12'
       />
-      {errors[inputName] && <ErrorMessage>{errors[inputName].message?.toString()}</ErrorMessage>}
+      {errors[inputName] && <ErrorMessage>{errors[inputName]?.message?.toString()}</ErrorMessage>}
     </ContainerField>
   )
 }

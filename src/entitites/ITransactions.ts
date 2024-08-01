@@ -1,14 +1,21 @@
 export interface ITransaction {
+    id?: string
     title: string
-    category: ICategory
+    category: IParseCategory
     date: string
-    value: number
+    transaction_value: number
     type: boolean
 }
-
 export interface ICategory {
+    id: string
     name: string
     color: string
     icon: string
     percentage: string | number
+}
+
+export interface IParseCategory {
+    id: string
+    name: string
+    color: string
 }

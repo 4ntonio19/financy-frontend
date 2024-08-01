@@ -1,44 +1,16 @@
-import CardIndicators from "../../components/CardIndicators"
 import FilterPeriod from "../../components/Filter/FilterPeriod"
 import { ContainerHome, SSection } from "./styles"
 import CardTransactions from "../../components/CardTransactions"
 import CategoryChart from "../../components/CategoryChart"
 import TransactionsList from "../../components/TransactionsList"
-import { useEffect, useState } from "react"
-import { formatCurrency } from "../../utils/formatterCurrency"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 import { Outlet } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { selectTransactions } from "../../store/Transactions/transactionsSlice"
+import CardIndicatorsList from "../../components/CardIndicatorsList/CardIndicatorsList"
 const Home = () => {
-  const transactions = useSelector(selectTransactions)
-  const [balance, setBalance] = useState("")
-  const [incomes, setIncomes] = useState("")
-  const [expenses, setExpenses] = useState("")
+  // const transactions = useSelector(selectTransactions)
 
-  useEffect(() => {
-    const totalBalance = transactions.reduce((acc, cur) => {
-      return acc + Number(cur.value)
-    }, 0)
-
-    const totalIncomes = transactions
-      .filter((transaction) => transaction.type === true)
-      .reduce((acc, cur) => {
-        return acc + cur.value
-      }, 0)
-
-    const totalExpenses = transactions
-      .filter((transaction) => transaction.type === false)
-      .reduce((acc, cur) => {
-        return acc + cur.value
-      }, 0)
-
-    setBalance(formatCurrency(totalBalance))
-    setIncomes(formatCurrency(totalIncomes))
-    setExpenses(formatCurrency(totalExpenses))
-  }, [transactions])
   return (
     <>
       <ContainerHome>
@@ -49,32 +21,7 @@ const Home = () => {
               <FilterPeriod />
             </section>
           </header>
-          <SSection className='indicators-section'>
-            <CardIndicators
-              title='Balanço'
-              value={balance}
-              icon='fa-solid fa-arrow-up'
-              colorIcon='#17B26A'
-              color='#155EEF'
-              percentage='0%'
-            />
-            <CardIndicators
-              title='Entradas'
-              value={incomes}
-              icon='fa-solid fa-arrow-up'
-              colorIcon='#17B26A'
-              color='#22292F'
-              percentage='0%'
-            />
-            <CardIndicators
-              title='Saídas'
-              value={`${expenses}`}
-              icon='fa-solid fa-arrow-down'
-              colorIcon='#F04438'
-              color='#22292F'
-              percentage='0%'
-            />
-          </SSection>
+          <CardIndicatorsList/>
           <SSection>
             <CardTransactions
               navigateTo='/dashboard/addIncome'

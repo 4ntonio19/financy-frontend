@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ContainerTransactionsList } from "./styles"
 import { formatCurrency } from "../../utils/formatterCurrency"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import { useSelector } from "react-redux"
-import { selectTransactions } from "../../store/Transactions/transactionsSlice"
+import { useGetTransactionsQuery } from "../../services/api"
+
 const TransactionsList = () => {
-  const lastTransactions = useSelector(selectTransactions)
+  const { data: lastTransactions } = useGetTransactionsQuery()
   return (
     <ContainerTransactionsList>
       <header>
@@ -24,8 +23,8 @@ const TransactionsList = () => {
           </tr>
         </thead>
         <tbody>
-          {lastTransactions.map((transaction) => (
-            <tr key={transaction.title}>
+          {lastTransactions?.map((transaction) => (
+            <tr key={transaction.id}>
               <td>
                 <FontAwesomeIcon
                   icon={"fa-solid fa-circle" as IconProp}
@@ -38,7 +37,7 @@ const TransactionsList = () => {
               <td>{transaction.category.name}</td>
               <td>{transaction.date}</td>
               <td className={transaction.type ? "income" : "expense"}>
-                {formatCurrency(transaction.value)}
+                {formatCurrency(transaction.transaction_value)}
               </td>
               <td>
                 <FontAwesomeIcon

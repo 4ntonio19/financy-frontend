@@ -3,11 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import { useEffect, useRef, useState } from "react"
 import { PieChart } from "@mui/x-charts"
-import { useSelector } from "react-redux"
-import { selectCategories } from "../../store/Transactions/transactionsSlice"
+import { useGetCategoriesQuery } from "../../services/api"
 const CategoryChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const categories = useSelector(selectCategories)
+  const { data: categories } = useGetCategoriesQuery()
   const [chartWidth, setChartWidth] = useState(0)
   const chartContainerRef = useRef<HTMLDivElement>(null)
 
@@ -24,7 +23,7 @@ const CategoryChart = () => {
     }
   }, [])
 
-  const data = categories.map((category) => {
+  const data = categories?.map((category) => {
     return {
       label: category.name,
       value: Number(category.percentage), // Convert the value to a number
@@ -36,7 +35,7 @@ const CategoryChart = () => {
       innerRadius: 60,
       outerRadius: 120,
       id: "series-2",
-      data: data,
+      data: data ?? [],
       cx: chartWidth / 2.5
     },
   ]
@@ -52,7 +51,7 @@ const CategoryChart = () => {
         />
       </div>
       <CategoryList>
-        {categories.map((item) => (
+        {categories?.map((item) => (
           <CategoryItem key={item.name}>
             <section>
               <div

@@ -8,13 +8,13 @@ type Props = {
   placeholder: string
 }
 const NumberField = ({ label, inputName, defaultValue, placeholder }: Props) => {
-  const { register, formState: { errors } } = useFormContext()
+  const { formState: { errors } } = useFormContext()
 
   return (
     <ContainerField>
       <label htmlFor={inputName}>{label}</label>
       <input
-        {...register(inputName, { required: "Campo obrigatório" })}
+        // {...register(inputName, { required: "Campo obrigatório" })}
         type='number'
         max={0}
         defaultValue={defaultValue}

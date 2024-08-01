@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "server": "json-server --watch db/db.json --port 5000",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -22,7 +23,9 @@
     "@reduxjs/toolkit": "^2.2.7",
     "@types/intl": "^1.2.2",
     "intl": "^1.2.5",
+    "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
+    "react-currency-input-field": "^3.8.0",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.52.1",

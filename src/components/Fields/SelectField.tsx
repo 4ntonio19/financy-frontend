@@ -29,7 +29,7 @@ const SelectField = ({
         {...register(inputName, { required: "Campo obrigatório" })}>
         <option value=''>{placeholder}</option>
         {options.map((opt) => (
-          <option value={opt.id}>{opt.name}</option>
+          <option value={opt.id}>{opt.title}</option>
         ))}
       </select>
       {errors[inputName] && (

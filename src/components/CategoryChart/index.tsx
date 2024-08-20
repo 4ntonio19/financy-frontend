@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import { useEffect, useRef, useState } from "react"
 import { PieChart } from "@mui/x-charts"
-import { useGetCategoriesQuery } from "../../services/api"
+import { formatCurrency } from "../../utils/formatterCurrency"
+import { useGetCategoriesQuery } from "../../services/categoryService"
 const CategoryChart = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { data: categories } = useGetCategoriesQuery()
+  const { data: categories } = useGetCategoriesQuery({    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920', type:'false'})
   const [chartWidth, setChartWidth] = useState(0)
   const chartContainerRef = useRef<HTMLDivElement>(null)
 
@@ -21,15 +22,16 @@ const CategoryChart = () => {
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  }, [])
+  }, [])  
 
   const data = categories?.map((category) => {
     return {
-      label: category.name,
+      label: category.title,
       value: Number(category.percentage), // Convert the value to a number
       color: category.color,
     }
   })
+  
   const series = [
     {
       innerRadius: 60,
@@ -52,16 +54,16 @@ const CategoryChart = () => {
       </div>
       <CategoryList>
         {categories?.map((item) => (
-          <CategoryItem key={item.name}>
+          <CategoryItem key={item.title}>
             <section>
               <div
                 className='container-icon'
                 style={{ backgroundColor: `${item.color}` }}>
                 <FontAwesomeIcon icon={item.icon as IconProp}/>
               </div>
-              <span>{item.name}</span>
+              <span>{item.title}</span>
             </section>
-            <p className='percentage'>{item.percentage}%</p>
+            <p className='percentage'>{formatCurrency(item.totalValue)} | {item.percentage}%</p>
           </CategoryItem>
         ))}
       </CategoryList>

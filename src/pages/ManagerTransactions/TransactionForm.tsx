@@ -7,12 +7,12 @@ import DateField from "../../components/Fields/DateField"
 import SelectField from "../../components/Fields/SelectField"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import {
-  useAddTransactionMutation,
-  useGetCategoriesQuery,
-} from "../../services/api"
+
 import MoneyValueField from "../../components/Fields/MoneyValueField"
 import { ITransaction } from "../../entitites/ITransactions"
+import { useGetCategoriesQuery } from "../../services/categoryService"
+import { useAddTransactionMutation } from "../../services/transactionService"
+
 
 type FormFields = {
   title: string
@@ -27,7 +27,7 @@ type Props = {
 const TransactionForm = ({ typeTransaction }: Props) => {
   const navigate = useNavigate()
   const methods = useForm<FormFields>()
-  const { data: categories } = useGetCategoriesQuery()
+  const { data: categories } = useGetCategoriesQuery({    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920', type: typeTransaction === 'income' ? 'true': 'false'})
   const [addTransaction] = useAddTransactionMutation()
   const onSubmit = async (data: FormFields) => {
     if (typeTransaction === "expense") {
@@ -41,11 +41,10 @@ const TransactionForm = ({ typeTransaction }: Props) => {
     if (categorySelect) {
       const objToSend: ITransaction = {
         ...data,
-        id: String(Math.round(Math.random() * (10000 - 1) + 1)),
         type: typeTransaction === "income" ? true : false,
         category: {
           id: categorySelect?.id,
-          name: categorySelect?.name,
+          name: categorySelect?.title,
           color: categorySelect?.color,
         },
       }

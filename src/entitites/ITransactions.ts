@@ -8,10 +8,11 @@ export interface ITransaction {
 }
 export interface ICategory {
     id: string
-    name: string
+    title: string
     color: string
     icon: string
-    percentage: string | number
+    percentage: string 
+    totalValue: number
 }
 
 export interface IParseCategory {

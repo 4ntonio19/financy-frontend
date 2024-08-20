@@ -2,10 +2,19 @@ import { ContainerTransactionsList } from "./styles"
 import { formatCurrency } from "../../utils/formatterCurrency"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import { useGetTransactionsQuery } from "../../services/api"
+import { useGetTransactionsQuery } from "../../services/transactionService"
+import { useEffect } from "react"
 
 const TransactionsList = () => {
-  const { data: lastTransactions } = useGetTransactionsQuery()
+  const { data: lastTransactions } = useGetTransactionsQuery({
+    user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
+    startDate: "2022-05-19",
+    endDate: "2024-09-01",
+  })
+
+  useEffect(() => {
+    console.log(lastTransactions)
+  }, [lastTransactions])
   return (
     <ContainerTransactionsList>
       <header>

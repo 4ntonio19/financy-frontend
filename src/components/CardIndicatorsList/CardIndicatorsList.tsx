@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react"
-import { useGetTransactionsQuery } from "../../services/api"
 import { formatCurrency } from "../../utils/formatterCurrency"
 import { ContainerCardIndicatorsList } from "./styles"
 import CardIndicators from "./CardIndicators"
+import { useGetTransactionsQuery } from "../../services/transactionService"
 
 const CardIndicatorsList = () => {
-    const { data: transactions } = useGetTransactionsQuery()
+  const { data: transactions } = useGetTransactionsQuery({
+    user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
+    startDate: "2022-05-19",
+    endDate: "2024-09-01",
+  })
   const [balance, setBalance] = useState("")
   const [incomes, setIncomes] = useState("")
   const [expenses, setExpenses] = useState("")

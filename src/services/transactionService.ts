@@ -1,4 +1,4 @@
-import { ITransaction } from "../entitites/ITransactions"
+import { ITransaction, TransactionDto } from "../entitites/ITransactions"
 import { api } from "./api"
 type GetTransactionsParams = {
   user_id: string
@@ -12,13 +12,15 @@ const TransactionService = api.injectEndpoints({
       query: ({ user_id, startDate, endDate }: GetTransactionsParams) =>
         `/transactions/${user_id}?startDate=${startDate}&endDate=${endDate}`,
       transformResponse: (response: ITransaction[]) => response.reverse(),
+      providesTags:['Transaction']
     }),
-    addTransaction: builder.mutation<string, ITransaction>({
+    addTransaction: builder.mutation<string, TransactionDto>({
       query: (transaction) => ({
         url: "/transactions",
         method: "POST",
         body: transaction,
       }),
+      invalidatesTags:['Transaction']
     }),
   }),
 })

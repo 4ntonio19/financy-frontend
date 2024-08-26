@@ -9,6 +9,7 @@ const CategoryService = api.injectEndpoints({
     getCategories: builder.query<ICategory[], GetCategoriesParams>({
       query: ({user_id, type}: GetCategoriesParams) =>
         `/categories/${user_id}?type=${type}`,
+      providesTags:['Transaction']
     }),
   }),
 })

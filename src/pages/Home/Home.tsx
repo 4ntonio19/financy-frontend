@@ -50,8 +50,8 @@ const Home = () => {
             <CardTransactions
               navigateTo='/dashboard/addTranfer'
               bgdIconColor='#F9FAFB'
-              title='Transferir dinheiro'
-              explanation='Selecione o valor para transferir'
+              title='Gerenciar categorias'
+              explanation='Crie, edite e apague suas categorias'
               icon={
                 <FontAwesomeIcon
                   color='#155EEF'

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import { useGetTransactionsQuery } from "../../services/transactionService"
 import { useEffect } from "react"
+import { formatterDate } from "../../utils/formatterDate"
 
 const TransactionsList = () => {
   const { data: lastTransactions } = useGetTransactionsQuery({
@@ -43,14 +44,17 @@ const TransactionsList = () => {
                 />
                 {transaction.title}
               </td>
-              <td>{transaction.category.name}</td>
-              <td>{transaction.date}</td>
+              <td>{transaction.category.title}</td>
+              <td>{formatterDate(transaction.date)}</td>
               <td className={transaction.type ? "income" : "expense"}>
-                {formatCurrency(transaction.transaction_value)}
+                {formatCurrency(transaction.value)}
               </td>
               <td>
                 <FontAwesomeIcon
-                  icon={"fa-solid fa-ellipsis-vertical" as IconProp}
+                  icon={"fa-solid fa-pen" as IconProp}
+                />
+                <FontAwesomeIcon
+                  icon={"fa-solid fa-trash" as IconProp}
                 />
               </td>
             </tr>

@@ -8,6 +8,7 @@ export const ContainerTransactionsList = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.gray._200};
+  position: relative;
 
   overflow-x: auto;
   header {
@@ -55,7 +56,10 @@ export const ContainerTransactionsList = styled.div`
       border: 1px solid ${({ theme }) => theme.colors.gray._200};
     }
   }
-
+  svg {
+    cursor: pointer;
+    margin-left: 1rem;
+  }
   & > div {
     display: none;
   }

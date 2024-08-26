@@ -9,15 +9,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 import MoneyValueField from "../../components/Fields/MoneyValueField"
-import { ITransaction } from "../../entitites/ITransactions"
+import { TransactionDto } from "../../entitites/ITransactions"
 import { useGetCategoriesQuery } from "../../services/categoryService"
 import { useAddTransactionMutation } from "../../services/transactionService"
 
-
 type FormFields = {
   title: string
-  transaction_value: number
-  category: string
+  value: number
+  category_id: string
   date: string
 }
 
@@ -27,31 +26,18 @@ type Props = {
 const TransactionForm = ({ typeTransaction }: Props) => {
   const navigate = useNavigate()
   const methods = useForm<FormFields>()
-  const { data: categories } = useGetCategoriesQuery({    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920', type: typeTransaction === 'income' ? 'true': 'false'})
+  const { data: categories } = useGetCategoriesQuery({
+    user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
+    type: typeTransaction === "income" ? "true" : "false",
+  })
   const [addTransaction] = useAddTransactionMutation()
   const onSubmit = async (data: FormFields) => {
-    if (typeTransaction === "expense") {
-      if (data.transaction_value > 0) {
-        data.transaction_value *= -1
-      }
+    const dto: TransactionDto = {
+      ...data,
+      type: typeTransaction === "income" ? true : false,
+      user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920'
     }
-    const categorySelect = categories?.find(
-      (category) => category.id === data.category
-    )
-    if (categorySelect) {
-      const objToSend: ITransaction = {
-        ...data,
-        type: typeTransaction === "income" ? true : false,
-        category: {
-          id: categorySelect?.id,
-          name: categorySelect?.title,
-          color: categorySelect?.color,
-        },
-      }
-      console.log(categorySelect)
-      console.log(objToSend)
-      await addTransaction(objToSend).unwrap()
-    }
+    await addTransaction(dto).unwrap()
     navigate("/dashboard")
   }
   return (
@@ -81,7 +67,7 @@ const TransactionForm = ({ typeTransaction }: Props) => {
             placeholder='Digite o título da transação...'
           />
           <MoneyValueField
-            inputName='transaction_value'
+            inputName='value'
             label='Insira o valor:'
             placeholder='Digite o valor da transação...'
           />
@@ -92,7 +78,7 @@ const TransactionForm = ({ typeTransaction }: Props) => {
           />
           <SelectField
             options={categories ?? []}
-            inputName='category'
+            inputName='category_id'
             label='Escolha a categoria:'
             placeholder='Selecione a categoria...'
           />

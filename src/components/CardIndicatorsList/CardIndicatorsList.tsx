@@ -16,19 +16,23 @@ const CardIndicatorsList = () => {
 
   useEffect(() => {
     const totalBalance = transactions?.reduce((acc, cur) => {
-      return acc + Number(cur.transaction_value)
+      const value = Number(cur.value)
+      if (cur.type !== undefined) {
+        return acc + (cur.type === false ? value * -1 : value)
+      }
+      return acc
     }, 0)
 
     const totalIncomes = transactions
       ?.filter((transaction) => transaction.type === true)
       .reduce((acc, cur) => {
-        return acc + cur.transaction_value
+        return acc + cur.value
       }, 0)
 
     const totalExpenses = transactions
       ?.filter((transaction) => transaction.type === false)
       .reduce((acc, cur) => {
-        return acc + cur.transaction_value
+        return acc + (cur.value * -1)
       }, 0)
     setBalance(formatCurrency(totalBalance ?? 0))
     setIncomes(formatCurrency(totalIncomes ?? 0))

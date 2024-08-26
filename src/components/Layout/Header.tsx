@@ -12,12 +12,12 @@ const Header = () => {
         </div>
         <Navbar />
         <div className='account-options'>
-          <button>
+          {/* <button>
           <FontAwesomeIcon icon={"fa-solid fa-gear" as IconProp} size={'xl'} color="#516778"/>
           </button>
           <button>
           <FontAwesomeIcon icon={"fa-regular fa-bell" as IconProp} size={'xl'} color="#516778"/>
-          </button>
+          </button> */}
           <FontAwesomeIcon icon={"fa-regular fa-circle-user" as IconProp} size={'xl'} color="#516778"/>
         </div>
       </WrapperHeaderContent>

@@ -4,6 +4,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${import.meta.env.VITE_BACKEND_URL}`
   }),
+  tagTypes: ['Transaction'],
   endpoints: () => ({})
 })
 

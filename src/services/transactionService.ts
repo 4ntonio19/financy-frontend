@@ -5,6 +5,10 @@ type GetTransactionsParams = {
   startDate: string
   endDate: string
 }
+type DeleteTransactionParams = {
+  user_id: string,
+  id: string
+}
 
 const TransactionService = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -22,7 +26,14 @@ const TransactionService = api.injectEndpoints({
       }),
       invalidatesTags:['Transaction']
     }),
+    deleteTransaction: builder.mutation<string, DeleteTransactionParams>({
+      query: ({ id, user_id }) => ({
+        url: `/transactions/${id}?user_id=${user_id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags:['Transaction']
+    })
   }),
 })
 
-export const { useGetTransactionsQuery, useAddTransactionMutation } = TransactionService
+export const { useGetTransactionsQuery, useAddTransactionMutation, useDeleteTransactionMutation } = TransactionService

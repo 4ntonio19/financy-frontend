@@ -5,6 +5,7 @@ export const ContainerTransactionsList = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.gray._200};
@@ -15,6 +16,7 @@ export const ContainerTransactionsList = styled.div`
     margin: 1.5rem;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
     span {
       font-weight: 600;
       font-size: 1.125rem;
@@ -62,5 +64,10 @@ export const ContainerTransactionsList = styled.div`
   }
   & > div {
     display: none;
+  }
+
+  .label-noData {
+    margin: 1rem;
+    color: ${({ theme }) => theme.colors.black._900};
   }
 `

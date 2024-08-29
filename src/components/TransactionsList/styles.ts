@@ -5,7 +5,6 @@ export const ContainerTransactionsList = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.gray._200};
@@ -68,6 +67,7 @@ export const ContainerTransactionsList = styled.div`
 
   .label-noData {
     margin: 1rem;
+    align-self: center;
     color: ${({ theme }) => theme.colors.black._900};
   }
 `

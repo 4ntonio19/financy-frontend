@@ -15,7 +15,7 @@ const CardIndicators = ({ title, value, icon, percentage, color, colorIcon }: Pr
     <CardContainer>
       <p>{title}</p>
       <section>
-        <span style={{color: color}}>{value}</span>
+        <span style={{color: color, wordWrap: 'normal'}}>{value}</span>
         <div className="container-percentage">
         <FontAwesomeIcon icon={icon as IconProp} color={colorIcon}/>
           <p>{percentage}</p>

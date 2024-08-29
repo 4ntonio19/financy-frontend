@@ -23,23 +23,36 @@ export const CardContainer = styled.div`
   }
 
   span {
-    font-size: 2.25rem;
-    line-height: 24px;
+    font-size: 2rem;
+    line-height: 2.3rem;
     font-weight: 600;
     flex: 1;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 1rem;
+    span {
+      font-size: 1.8rem;
+    }
+  }
+  @media (max-width: 1100px) {
+    padding: 1rem;
+    span {
+      font-size: 1.7rem;
+    }
   }
 
   @media (max-width: 1024px) {
     padding: 1rem;
     span {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
 
   @media (max-width: 768px) {
     padding: 0.5rem;
     span {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
   }
 

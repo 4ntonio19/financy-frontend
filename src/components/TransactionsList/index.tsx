@@ -34,7 +34,7 @@ const TransactionsList = () => {
         <span>Últimas Transações</span>
         <p>Olhe suas últimas transações</p>
       </header>
-      {lastTransactions && lastTransactions?.length < 0 ? (
+      {lastTransactions && lastTransactions?.length > 0 ? (
         <table>
           <thead>
             <tr>

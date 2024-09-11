@@ -8,12 +8,15 @@ import {
 } from "../../services/transactionService"
 import { formatterDate } from "../../utils/formatterDate"
 import { ITransaction } from "../../entitites/ITransactions"
+import { useSelector } from "react-redux"
+import { SelectDates } from "../../store/dateFilterSlice"
 
 const TransactionsList = () => {
+  const dates = useSelector(SelectDates)
   const { data: lastTransactions } = useGetTransactionsQuery({
     user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
-    startDate: "2022-05-19",
-    endDate: "2024-09-01",
+    startDate: dates.dateStart,
+    endDate: dates.dateEnd,
   })
 
   const [deleteTransaction] = useDeleteTransactionMutation()

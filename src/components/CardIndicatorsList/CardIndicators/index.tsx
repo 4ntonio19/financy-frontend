@@ -10,12 +10,12 @@ type Props = {
   percentage: string
   color?: string
 }
-const Card = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
+const CardIndicators = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
   return (
     <CardContainer>
       <p>{title}</p>
       <section>
-        <span style={{color: color}}>{value}</span>
+        <span style={{color: color, wordWrap: 'normal'}}>{value}</span>
         <div className="container-percentage">
         <FontAwesomeIcon icon={icon as IconProp} color={colorIcon}/>
           <p>{percentage}</p>
@@ -25,4 +25,4 @@ const Card = ({ title, value, icon, percentage, color, colorIcon }: Props) => {
   )
 }
 
-export default Card
+export default CardIndicators

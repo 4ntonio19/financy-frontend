@@ -1,41 +1,82 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ContainerTransactionsList } from "./styles"
-import mock from "../../mock/mock.json"
-import { useState } from "react"
-import { formatCurrency } from "../../utils/formatterCurrency"
+import { ContainerTransactionsList } from './styles'
+import { formatCurrency } from '../../utils/formatterCurrency'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import {
+  useDeleteTransactionMutation,
+  useGetTransactionsQuery,
+} from '../../services/transactionService'
+import { formatterDate } from '../../utils/formatterDate'
+import { ITransaction } from '../../entitites/Transaction'
+import { useSelector } from 'react-redux'
+import { SelectDates } from '../../store/dateFilterSlice'
+
 const TransactionsList = () => {
-  const [lastTransactions] = useState(mock.transactions)
+  const dates = useSelector(SelectDates)
+  const { data: lastTransactions } = useGetTransactionsQuery({
+    startDate: dates.dateStart,
+    endDate: dates.dateEnd,
+  })
+
+  const [deleteTransaction] = useDeleteTransactionMutation()
+
+  const handleDelete = async (transaction: ITransaction) => {
+    try {
+      await deleteTransaction(transaction.id)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <ContainerTransactionsList>
       <header>
         <span>Últimas Transações</span>
         <p>Olhe suas últimas transações</p>
       </header>
-      <table>
-        <tr>
-          <th>Descrição</th>
-          <th>Categoria</th>
-          <th>Data</th>
-          <th>Valor</th>
-          <th></th>
-        </tr>
-        {lastTransactions.map((transaction) => (
-          <tr>
-            <td>
-            <FontAwesomeIcon icon={"fa-solid fa-circle" as IconProp} size="xs" color={transaction.category_color} style={{marginRight: '0.5rem'}} />
-              {transaction.description}
-            </td>
-            <td>{transaction.category}</td>
-            <td>{transaction.date}</td>
-            <td className={transaction.type ? 'income' : 'expense'}>{formatCurrency(transaction.value)}</td>
-            <td>
-            <FontAwesomeIcon icon={"fa-solid fa-ellipsis-vertical" as IconProp} />
-            </td>
-          </tr>
-        ))}
-      </table>
+      {lastTransactions && lastTransactions?.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Data</th>
+              <th>Valor</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {lastTransactions?.map(transaction => (
+              <tr key={transaction.id}>
+                <td>
+                  <FontAwesomeIcon
+                    icon={'fa-solid fa-circle' as IconProp}
+                    size="xs"
+                    color={transaction.category.color}
+                    style={{ marginRight: '0.5rem' }}
+                  />
+                  {transaction.title}
+                </td>
+                <td>{transaction.category.title}</td>
+                <td>{formatterDate(transaction.date)}</td>
+                <td className={transaction.type ? 'income' : 'expense'}>
+                  {formatCurrency(transaction.value)}
+                </td>
+                <td>
+                  <FontAwesomeIcon icon={'fa-solid fa-pen' as IconProp} />
+                  <FontAwesomeIcon
+                    onClick={() => handleDelete(transaction)}
+                    icon={'fa-solid fa-trash' as IconProp}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <span className="label-noData">
+          Não existem transações. Adicione uma entrada ou saída para exibi-la.
+        </span>
+      )}
     </ContainerTransactionsList>
   )
 }

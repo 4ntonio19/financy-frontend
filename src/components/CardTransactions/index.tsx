@@ -1,19 +1,30 @@
+import { useNavigate } from "react-router-dom"
 import { ContainerTransactions } from "./styles"
 
 type Props = {
-    title: string
-    explanation: string
-    icon: React.ReactNode
-    bgdIconColor?: string
+  title: string
+  explanation: string
+  icon: React.ReactNode
+  bgdIconColor?: string
+  navigateTo: string
 }
-const CardTransactions = ({ title, explanation, icon, bgdIconColor }: Props) => {
+const CardTransactions = ({
+  title,
+  explanation,
+  icon,
+  bgdIconColor,
+  navigateTo
+}: Props) => {
+  const navigate = useNavigate()
   return (
-    <ContainerTransactions>
-        <div className="container-icon" style={{backgroundColor: bgdIconColor}}>{icon}</div>
-        <section className="container-text">
-            <span>{title}</span>
-            <p>{explanation}</p>
-        </section>
+    <ContainerTransactions onClick={() => navigate(navigateTo)}>
+      <div className='container-icon' style={{ backgroundColor: bgdIconColor }}>
+        {icon}
+      </div>
+      <section className='container-text'>
+        <span>{title}</span>
+        <p>{explanation}</p>
+      </section>
     </ContainerTransactions>
   )
 }

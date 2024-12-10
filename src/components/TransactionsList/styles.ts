@@ -8,12 +8,14 @@ export const ContainerTransactionsList = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.75rem;
   border: 1px solid ${({ theme }) => theme.colors.gray._200};
+  position: relative;
 
   overflow-x: auto;
   header {
     margin: 1.5rem;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
     span {
       font-weight: 600;
       font-size: 1.125rem;
@@ -55,8 +57,17 @@ export const ContainerTransactionsList = styled.div`
       border: 1px solid ${({ theme }) => theme.colors.gray._200};
     }
   }
-
+  svg {
+    cursor: pointer;
+    margin-left: 1rem;
+  }
   & > div {
     display: none;
+  }
+
+  .label-noData {
+    margin: 1rem;
+    align-self: center;
+    color: ${({ theme }) => theme.colors.black._900};
   }
 `

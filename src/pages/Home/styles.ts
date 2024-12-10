@@ -4,6 +4,7 @@ export const ContainerHome = styled.div`
   width: 1440px;
   max-width: 100%;
   margin: 0 auto;
+  overflow-y: hidden;
 
   .home-content{
     width: 90%;

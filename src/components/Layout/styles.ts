@@ -7,6 +7,7 @@ export const ContainerLayout = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
 `
 
 export const ContainerHeader = styled.header`

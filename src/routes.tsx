@@ -11,6 +11,10 @@ import TransactionForm from './pages/ManagerTransactions/TransactionForm'
 import Login from './pages/Login/Login'
 export const AppRoutes = () => {
   const ProtectedRoutes = () => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      return <Navigate to="/login" />
+    }
     return <Outlet />
   }
 

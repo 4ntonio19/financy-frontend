@@ -14,10 +14,8 @@ export const handleApiError: Middleware = (api: MiddlewareAPI) => (next) => (act
             duration: 5000,
             position: 'top'
         });
-        setTimeout(() => api.dispatch(clearSession()), 4000);
-    }
-
-    if(errorPayload.status === 403) {
+        setTimeout(() => api.dispatch(clearSession()), 2000);
+    } else if(errorPayload.status === 403) {
         toast({
             title: 'Erro ao efetuar a operação',
             description: errorPayload.data.error,
@@ -25,6 +23,14 @@ export const handleApiError: Middleware = (api: MiddlewareAPI) => (next) => (act
             duration: 5000,
             position: 'top'
         })
+    } else {
+      toast({
+        title: 'Ocorreu um erro inesperado',
+        description: 'Tente novamente mais tarde',
+        status: 'error',
+        duration: 5000,
+        position: 'top'
+    })
     }
   }
   return next(action)

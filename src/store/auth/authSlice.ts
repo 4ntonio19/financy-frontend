@@ -19,6 +19,8 @@ export const authSlice = createSlice({
                 userId: '',
                 firstName: ''
             }
+            localStorage.clear()
+            sessionStorage.clear()
             window.location.href = '/login'
         }
     },

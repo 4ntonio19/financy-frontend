@@ -1,6 +1,6 @@
 import { createStandaloneToast } from "@chakra-ui/toast";
 import { isRejectedWithValue, Middleware, MiddlewareAPI } from "@reduxjs/toolkit";
-import { clearSession } from "../auth/authSlice";
+import { clearSession } from "../../store/auth/authSlice";
 const { toast } = createStandaloneToast();
 export const handleApiError: Middleware = (api: MiddlewareAPI) => (next) => (action) => {
   if(isRejectedWithValue(action)) {

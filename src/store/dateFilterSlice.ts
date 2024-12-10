@@ -5,8 +5,8 @@ type StateType = {
     dateEnd: string
 }
 const initialState: StateType = {
-    dateStart: '',
-    dateEnd: ''
+    dateStart: '2024-11-30',
+    dateEnd: '2024-12-31'
 }
 
 export const dateFilterSlice = createSlice({

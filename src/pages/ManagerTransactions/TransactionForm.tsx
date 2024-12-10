@@ -9,14 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 import MoneyValueField from '../../components/Fields/MoneyValueField'
-import { TransactionDto } from '../../entitites/Transactions'
+import { TransactionDto } from '../../entitites/Transaction'
 import { useGetCategoriesQuery } from '../../services/categoryService'
 import { useAddTransactionMutation } from '../../services/transactionService'
 
 type FormFields = {
   title: string
   value: number
-  category_id: string
+  categoryId: string
   date: string
 }
 
@@ -26,16 +26,14 @@ type Props = {
 const TransactionForm = ({ typeTransaction }: Props) => {
   const navigate = useNavigate()
   const methods = useForm<FormFields>()
-  const { data: categories } = useGetCategoriesQuery({
-    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
-    type: typeTransaction === 'income' ? 'true' : 'false',
-  })
+  const { data: categories } = useGetCategoriesQuery(
+    typeTransaction === 'income'
+  )
   const [addTransaction] = useAddTransactionMutation()
   const onSubmit = async (data: FormFields) => {
     const dto: TransactionDto = {
       ...data,
-      type: typeTransaction === 'income' ? true : false,
-      user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
+      type: typeTransaction === 'income',
     }
     await addTransaction(dto).unwrap()
     navigate('/dashboard')
@@ -79,7 +77,7 @@ const TransactionForm = ({ typeTransaction }: Props) => {
           />
           <SelectField
             options={categories ?? []}
-            inputName="category_id"
+            inputName="categoryId"
             label="Escolha a categoria:"
             placeholder="Selecione a categoria..."
           />

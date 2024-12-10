@@ -1,3 +1,5 @@
+import { IParseCategory } from "./Category"
+
 export interface ITransaction {
     id: string
     title: string
@@ -7,26 +9,19 @@ export interface ITransaction {
     category: IParseCategory
 }
 
+
 export type TransactionDto = {
     title: string
     date: string
     value: number
     type: boolean
-    category_id: string
-    user_id: string
+    categoryId: string
 }
-export interface ICategory {
+export type EditTransactionDto = {
     id: string
     title: string
-    color: string
-    icon: string
+    date: string
+    value: number
     type: boolean
-    percentage: string 
-    totalValue: number
-}
-
-export interface IParseCategory {
-    id: string
-    title: string
-    color: string
+    categoryId: string
 }

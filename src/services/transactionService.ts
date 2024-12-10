@@ -1,21 +1,15 @@
-import { ITransaction, TransactionDto } from "../entitites/Transactions"
+import { EditTransactionDto, ITransaction, TransactionDto } from "../entitites/Transaction"
 import { api } from "./api"
 type GetTransactionsParams = {
-  user_id: string
   startDate: string
   endDate: string
-}
-type DeleteTransactionParams = {
-  user_id: string,
-  id: string
 }
 
 const TransactionService = api.injectEndpoints({
   endpoints: (builder) => ({
     getTransactions: builder.query<ITransaction[], GetTransactionsParams>({
-      query: ({ user_id, startDate, endDate }: GetTransactionsParams) =>
-        `/transactions/${user_id}?startDate=${startDate}&endDate=${endDate}`,
-      transformResponse: (response: ITransaction[]) => response.reverse(),
+      query: ({ startDate, endDate }: GetTransactionsParams) =>
+        `/transactions?startDate=${startDate}&endDate=${endDate}`,
       providesTags:['Transaction']
     }),
     addTransaction: builder.mutation<string, TransactionDto>({
@@ -26,9 +20,17 @@ const TransactionService = api.injectEndpoints({
       }),
       invalidatesTags:['Transaction']
     }),
-    deleteTransaction: builder.mutation<string, DeleteTransactionParams>({
-      query: ({ id, user_id }) => ({
-        url: `/transactions/${id}?user_id=${user_id}`,
+    editTransaction: builder.mutation<string, EditTransactionDto>({
+      query: (transaction) => ({
+        url: `/transactions/${transaction.id}`,
+        method: "PUT",
+        body: transaction,
+      }),
+      invalidatesTags:['Transaction']
+    }),
+    deleteTransaction: builder.mutation<void, string>({
+      query: ( id ) => ({
+        url: `/transactions/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags:['Transaction']
@@ -36,4 +38,4 @@ const TransactionService = api.injectEndpoints({
   }),
 })
 
-export const { useGetTransactionsQuery, useAddTransactionMutation, useDeleteTransactionMutation } = TransactionService
+export const { useGetTransactionsQuery, useAddTransactionMutation, useEditTransactionMutation, useDeleteTransactionMutation } = TransactionService

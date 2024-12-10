@@ -7,14 +7,13 @@ import {
   useGetTransactionsQuery,
 } from '../../services/transactionService'
 import { formatterDate } from '../../utils/formatterDate'
-import { ITransaction } from '../../entitites/Transactions'
+import { ITransaction } from '../../entitites/Transaction'
 import { useSelector } from 'react-redux'
 import { SelectDates } from '../../store/dateFilterSlice'
 
 const TransactionsList = () => {
   const dates = useSelector(SelectDates)
   const { data: lastTransactions } = useGetTransactionsQuery({
-    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
     startDate: dates.dateStart,
     endDate: dates.dateEnd,
   })
@@ -23,10 +22,7 @@ const TransactionsList = () => {
 
   const handleDelete = async (transaction: ITransaction) => {
     try {
-      await deleteTransaction({
-        user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
-        id: transaction.id,
-      })
+      await deleteTransaction(transaction.id)
     } catch (error) {
       console.log(error)
     }
@@ -45,7 +41,7 @@ const TransactionsList = () => {
               <th>Categoria</th>
               <th>Data</th>
               <th>Valor</th>
-              <th></th>
+              <th />
             </tr>
           </thead>
           <tbody>

@@ -1,4 +1,4 @@
-import { ITransaction, TransactionDto } from "../entitites/ITransactions"
+import { ITransaction, TransactionDto } from "../entitites/Transactions"
 import { api } from "./api"
 type GetTransactionsParams = {
   user_id: string

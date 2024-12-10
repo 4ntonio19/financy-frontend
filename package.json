@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite --mode development",
+    "start": "vite --mode production",
     "build": "tsc && vite build",
     "server": "json-server --watch db/db.json --port 5000",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/system": "^2.6.2",
+    "@chakra-ui/toast": "^7.0.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -22,6 +25,8 @@
     "@mui/x-charts": "^7.11.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@types/intl": "^1.2.2",
+    "add": "^2.0.6",
+    "framer-motion": "^11.13.1",
     "intl": "^1.2.5",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
@@ -32,9 +37,11 @@
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.22.3",
     "react-scripts": "^5.0.1",
+    "snippet": "^0.1.0",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",

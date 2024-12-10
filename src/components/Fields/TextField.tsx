@@ -11,7 +11,7 @@ const TextField = ({ label, inputName, defaultValue, placeholder }: Props) => {
   const { register, formState: { errors } } = useFormContext()
 
   return (
-    <ContainerField>
+    <ContainerField >
       <label htmlFor={inputName}>{label}</label>
       <input
         {...register(inputName, { required: "Campo obrigatório" })}

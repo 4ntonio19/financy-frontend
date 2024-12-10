@@ -19,6 +19,7 @@ Financy é um projeto de controle financeiro desenvolvido em ReactJS com TypeScr
 - [ReactJS](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Styled-Components](https://styled-components.com/)
+- [ReduxToolKit](https://redux-toolkit.js.org/)
 
 ## Funcionalidades
 

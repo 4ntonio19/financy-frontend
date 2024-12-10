@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { ICategory, ITransaction } from "../../entitites/ITransactions"
+import { ICategory, ITransaction } from "../../entitites/Transactions"
 import { RootState } from "../store"
 
 type TransactionsState = {

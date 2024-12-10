@@ -1,20 +1,20 @@
-import { ContainerTransactionsList } from "./styles"
-import { formatCurrency } from "../../utils/formatterCurrency"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { ContainerTransactionsList } from './styles'
+import { formatCurrency } from '../../utils/formatterCurrency'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import {
   useDeleteTransactionMutation,
   useGetTransactionsQuery,
-} from "../../services/transactionService"
-import { formatterDate } from "../../utils/formatterDate"
-import { ITransaction } from "../../entitites/ITransactions"
-import { useSelector } from "react-redux"
-import { SelectDates } from "../../store/dateFilterSlice"
+} from '../../services/transactionService'
+import { formatterDate } from '../../utils/formatterDate'
+import { ITransaction } from '../../entitites/Transactions'
+import { useSelector } from 'react-redux'
+import { SelectDates } from '../../store/dateFilterSlice'
 
 const TransactionsList = () => {
   const dates = useSelector(SelectDates)
   const { data: lastTransactions } = useGetTransactionsQuery({
-    user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
+    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
     startDate: dates.dateStart,
     endDate: dates.dateEnd,
   })
@@ -24,7 +24,7 @@ const TransactionsList = () => {
   const handleDelete = async (transaction: ITransaction) => {
     try {
       await deleteTransaction({
-        user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
+        user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
         id: transaction.id,
       })
     } catch (error) {
@@ -49,27 +49,27 @@ const TransactionsList = () => {
             </tr>
           </thead>
           <tbody>
-            {lastTransactions?.map((transaction) => (
+            {lastTransactions?.map(transaction => (
               <tr key={transaction.id}>
                 <td>
                   <FontAwesomeIcon
-                    icon={"fa-solid fa-circle" as IconProp}
-                    size='xs'
+                    icon={'fa-solid fa-circle' as IconProp}
+                    size="xs"
                     color={transaction.category.color}
-                    style={{ marginRight: "0.5rem" }}
+                    style={{ marginRight: '0.5rem' }}
                   />
                   {transaction.title}
                 </td>
                 <td>{transaction.category.title}</td>
                 <td>{formatterDate(transaction.date)}</td>
-                <td className={transaction.type ? "income" : "expense"}>
+                <td className={transaction.type ? 'income' : 'expense'}>
                   {formatCurrency(transaction.value)}
                 </td>
                 <td>
-                  <FontAwesomeIcon icon={"fa-solid fa-pen" as IconProp} />
+                  <FontAwesomeIcon icon={'fa-solid fa-pen' as IconProp} />
                   <FontAwesomeIcon
                     onClick={() => handleDelete(transaction)}
-                    icon={"fa-solid fa-trash" as IconProp}
+                    icon={'fa-solid fa-trash' as IconProp}
                   />
                 </td>
               </tr>
@@ -77,7 +77,9 @@ const TransactionsList = () => {
           </tbody>
         </table>
       ) : (
-        <span className='label-noData'>Não existem transações. Adicione uma entrada ou saída para exibi-la.</span>
+        <span className="label-noData">
+          Não existem transações. Adicione uma entrada ou saída para exibi-la.
+        </span>
       )}
     </ContainerTransactionsList>
   )

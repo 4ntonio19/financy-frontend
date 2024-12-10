@@ -1,17 +1,17 @@
-import { FormProvider, useForm } from "react-hook-form"
-import TextField from "../../components/Fields/TextField"
-import Modal from "../../components/Modal/Modal"
-import { ContainerTransactionForm } from "./styles"
-import { useNavigate } from "react-router-dom"
-import DateField from "../../components/Fields/DateField"
-import SelectField from "../../components/Fields/SelectField"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { IconProp } from "@fortawesome/fontawesome-svg-core"
+import { FormProvider, useForm } from 'react-hook-form'
+import TextField from '../../components/Fields/TextField'
+import Modal from '../../components/Modal/Modal'
+import { ContainerTransactionForm } from './styles'
+import { useNavigate } from 'react-router-dom'
+import DateField from '../../components/Fields/DateField'
+import SelectField from '../../components/Fields/SelectField'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-import MoneyValueField from "../../components/Fields/MoneyValueField"
-import { TransactionDto } from "../../entitites/ITransactions"
-import { useGetCategoriesQuery } from "../../services/categoryService"
-import { useAddTransactionMutation } from "../../services/transactionService"
+import MoneyValueField from '../../components/Fields/MoneyValueField'
+import { TransactionDto } from '../../entitites/Transactions'
+import { useGetCategoriesQuery } from '../../services/categoryService'
+import { useAddTransactionMutation } from '../../services/transactionService'
 
 type FormFields = {
   title: string
@@ -21,66 +21,67 @@ type FormFields = {
 }
 
 type Props = {
-  typeTransaction: "income" | "expense"
+  typeTransaction: 'income' | 'expense'
 }
 const TransactionForm = ({ typeTransaction }: Props) => {
   const navigate = useNavigate()
   const methods = useForm<FormFields>()
   const { data: categories } = useGetCategoriesQuery({
-    user_id: "951bfe2c-954e-40d9-88eb-e4b59690a920",
-    type: typeTransaction === "income" ? "true" : "false",
+    user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
+    type: typeTransaction === 'income' ? 'true' : 'false',
   })
   const [addTransaction] = useAddTransactionMutation()
   const onSubmit = async (data: FormFields) => {
     const dto: TransactionDto = {
       ...data,
-      type: typeTransaction === "income" ? true : false,
-      user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920'
+      type: typeTransaction === 'income' ? true : false,
+      user_id: '951bfe2c-954e-40d9-88eb-e4b59690a920',
     }
     await addTransaction(dto).unwrap()
-    navigate("/dashboard")
+    navigate('/dashboard')
   }
   return (
     <Modal
       onClickSubmit={methods.handleSubmit(onSubmit)}
       title={
         <>
-          Nova {typeTransaction === "income" ? "entrada" : "saída"}
+          Nova {typeTransaction === 'income' ? 'entrada' : 'saída'}
           <FontAwesomeIcon
-            color={typeTransaction === "income" ? "#0B9055" : "#F04438"}
+            color={typeTransaction === 'income' ? '#0B9055' : '#F04438'}
             icon={
               `${
-                typeTransaction === "income"
-                  ? "fa-solid fa-arrow-up"
-                  : "fa-solid fa-arrow-down"
+                typeTransaction === 'income'
+                  ? 'fa-solid fa-arrow-up'
+                  : 'fa-solid fa-arrow-down'
               }` as IconProp
             }
           />
         </>
       }
-      toggleClose={() => navigate("/dashboard")}>
+      toggleClose={() => navigate('/dashboard')}
+    >
       <FormProvider {...methods}>
         <ContainerTransactionForm>
           <TextField
-            inputName='title'
-            label='Insira o título:'
-            placeholder='Digite o título da transação...'
+            inputName="title"
+            label="Insira o título:"
+            placeholder="Digite o título da transação..."
           />
           <MoneyValueField
-            inputName='value'
-            label='Insira o valor:'
-            placeholder='Digite o valor da transação...'
+            inputName="value"
+            label="Insira o valor:"
+            placeholder="Digite o valor da transação..."
           />
           <DateField
-            inputName='date'
-            label='Insira a data:'
-            placeholder='dd/mm/aaaa'
+            inputName="date"
+            label="Insira a data:"
+            placeholder="dd/mm/aaaa"
           />
           <SelectField
             options={categories ?? []}
-            inputName='category_id'
-            label='Escolha a categoria:'
-            placeholder='Selecione a categoria...'
+            inputName="category_id"
+            label="Escolha a categoria:"
+            placeholder="Selecione a categoria..."
           />
         </ContainerTransactionForm>
       </FormProvider>

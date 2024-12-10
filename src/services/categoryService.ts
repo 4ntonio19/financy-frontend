@@ -1,4 +1,4 @@
-import { ICategory } from "../entitites/ITransactions"
+import { ICategory } from "../entitites/Transactions"
 import { api } from "./api"
 type GetCategoriesParams = {
     user_id: string

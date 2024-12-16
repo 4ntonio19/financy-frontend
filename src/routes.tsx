@@ -9,6 +9,7 @@ import Home from './pages/Home/Home'
 import Layout from './components/Layout'
 import TransactionForm from './pages/ManagerTransactions/TransactionForm'
 import Login from './pages/Login/Login'
+import SignUp from './pages/SignUp'
 export const AppRoutes = () => {
   const ProtectedRoutes = () => {
     const token = localStorage.getItem('token')
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<ProtectedRoutes />}>
           <Route index element={<Navigate to="/dashboard" />} />

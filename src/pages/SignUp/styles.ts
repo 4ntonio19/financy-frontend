@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-width: 100%;
-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
 `
 
 export const WrapperForm = styled.section`
@@ -18,7 +18,8 @@ align-items: center;
 gap: 2.5rem;
 padding: 2rem;
 width: 28rem;
-height: 28rem;
+min-height: 28rem;
+height: fit-content;
 
 
 .wrapper-logo {
@@ -47,8 +48,8 @@ height: 28rem;
     .wrapper-input {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
         width: 100%;
+        gap: 0.5rem;
     }
 
     input {
@@ -83,6 +84,7 @@ height: 28rem;
         font-size: 0.8rem;
     }
   }
+
   .account-message {
     color: ${({ theme }) => theme.colors.gray._600};
     font-size: 0.8rem;
@@ -92,4 +94,5 @@ height: 28rem;
         cursor: pointer;
     }
   }
+
 `

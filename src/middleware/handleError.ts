@@ -14,7 +14,7 @@ export const handleApiError: Middleware = (api: MiddlewareAPI) => (next) => (act
             duration: 5000,
             position: 'top'
         });
-        setTimeout(() => api.dispatch(clearSession()), 2000);
+        // setTimeout(() => api.dispatch(clearSession()), 2000);
     } else if(errorPayload.status === 403) {
         toast({
             title: 'Erro ao efetuar a operação',

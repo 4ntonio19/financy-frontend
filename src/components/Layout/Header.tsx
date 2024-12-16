@@ -3,7 +3,12 @@ import logoFinancy from '../../assets/Logo_com_nome.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Navbar from '../Navbar'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { clearSession } from '../../store/auth/authSlice'
 const Header = () => {
+  const [openMenu, setIsOpenMenu] = useState(false)
+  const dispatch = useDispatch()
   return (
     <ContainerHeader>
       <WrapperHeaderContent>
@@ -18,11 +23,20 @@ const Header = () => {
           <button>
           <FontAwesomeIcon icon={"fa-regular fa-bell" as IconProp} size={'xl'} color="#516778"/>
           </button> */}
-          <FontAwesomeIcon
-            icon={'fa-regular fa-circle-user' as IconProp}
-            size={'xl'}
-            color="#516778"
-          />
+          <div className="wrapper-user-menu">
+            <FontAwesomeIcon
+              icon={'fa-regular fa-circle-user' as IconProp}
+              size={'xl'}
+              color="#516778"
+              onClick={() => setIsOpenMenu(!openMenu)}
+            />
+            {openMenu && (
+              <ul className="menu">
+                {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+                <li onClick={() => dispatch(clearSession())}>Logout</li>
+              </ul>
+            )}
+          </div>
         </div>
       </WrapperHeaderContent>
     </ContainerHeader>

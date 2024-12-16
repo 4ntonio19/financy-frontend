@@ -3,7 +3,7 @@ import transactionsReducer from "./Transactions/transactionsSlice"
 import dateFilterReducer from './dateFilterSlice'
 import { api } from "../services/api"
 import  authSlice  from "./auth/authSlice"
-import { handleApiError } from "../utils/middleware/handleError"
+import { handleApiError } from "../middleware/handleError"
 
 export const store = configureStore({
   reducer: {

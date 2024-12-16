@@ -47,6 +47,28 @@ export const WrapperHeaderContent = styled.div`
       }
     }
   }
+
+
+  .wrapper-user-menu {
+    position: relative;
+
+    .menu {
+      right: 50%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      position: absolute;
+      list-style: none;
+      background-color: ${({ theme }) => theme.colors.gray._200};
+      li {
+        font-size: 0.9rem;
+        cursor: pointer;
+        &:active {
+          background-color: ${({ theme }) => theme.colors.gray._100};
+        }
+      }
+    }
+  }
+  
   @media (max-width: 1024px) {
     .container-logo {
       img{

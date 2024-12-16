@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Container, WrapperForm } from './styles'
-import Logo from '../../assets/Logo3.svg'
+import Logo from '../../assets/Logo.svg'
 import { useLoginMutation } from '../../services/api'
 import { createStandaloneToast } from '@chakra-ui/toast'
 import { useNavigate } from 'react-router-dom'
@@ -72,6 +72,12 @@ const Login = () => {
             )}
           </div>
           <button type="submit">Entrar</button>
+          <p className="account-message">
+            Nào possui uma conta?{' '}
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+            <span onClick={() => navigate('/signup')}>Clique aqui</span> para
+            fazer o cadastro.
+          </p>
         </form>
       </WrapperForm>
     </Container>
